@@ -1,0 +1,9 @@
+﻿<application title="PlexWMC" id="{73EE1F57-DB00-4648-8DC2-58C89FE4C560}">
+	<entrypoint id="{2207BD5A-ECF6-47D7-9433-CD00DF0CC463}"
+				addin="PlexWMC.MyAddIn, PlexWMC,Culture=Neutral,Version=1.0.0.0,PublicKeyToken=4ae5afde023f77cc"
+				title="PlexWMC"
+				description="PlexWMC Description"
+				ImageUrl=".\Application.png">
+		<category category="More Programs"/>
+	</entrypoint>
+</application>
