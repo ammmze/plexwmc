@@ -1,7 +1,0 @@
-C:\Users\FamilyRoom\Documents\Visual Studio 2012\Projects\PlexWMC\PlexWMC\PlexWMC\bin\Debug\PlexWMC.dll
-C:\Users\FamilyRoom\Documents\Visual Studio 2012\Projects\PlexWMC\PlexWMC\PlexWMC\bin\Debug\PlexWMC.pdb
-C:\Users\FamilyRoom\Documents\Visual Studio 2012\Projects\PlexWMC\PlexWMC\PlexWMC\obj\Debug\PlexWMC.csprojResolveAssemblyReference.cache
-C:\Users\FamilyRoom\Documents\Visual Studio 2012\Projects\PlexWMC\PlexWMC\PlexWMC\obj\Debug\PlexWMC.Resources.resources
-C:\Users\FamilyRoom\Documents\Visual Studio 2012\Projects\PlexWMC\PlexWMC\PlexWMC\obj\Debug\PlexWMC.csproj.GenerateResource.Cache
-C:\Users\FamilyRoom\Documents\Visual Studio 2012\Projects\PlexWMC\PlexWMC\PlexWMC\obj\Debug\PlexWMC.dll
-C:\Users\FamilyRoom\Documents\Visual Studio 2012\Projects\PlexWMC\PlexWMC\PlexWMC\obj\Debug\PlexWMC.pdb

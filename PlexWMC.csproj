@@ -11,7 +11,7 @@
     <RootNamespace>PlexWMC</RootNamespace>
     <AssemblyName>PlexWMC</AssemblyName>
     <SignAssembly>true</SignAssembly>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DevInstall.cmd" />
+    <None Include="packages.config" />
     <None Include="Plex.snk" />
     <None Include="Setup\Build.cmd" />
     <None Include="Setup\License.rtf" />

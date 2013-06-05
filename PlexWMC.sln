@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Desktop
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlexWMC", "PlexWMC\PlexWMC.csproj", "{BCB2F837-2175-4F8B-8F33-29157576F221}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlexWMC", "PlexWMC.csproj", "{BCB2F837-2175-4F8B-8F33-29157576F221}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
