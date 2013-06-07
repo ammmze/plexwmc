@@ -75,14 +75,47 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="DevInstall.cmd" />
+    <None Include="Markup\Animations.mcml" />
+    <None Include="Markup\Background.mcml" />
+    <None Include="Markup\Base.mcml" />
+    <None Include="Markup\CheckBox.mcml" />
+    <None Include="Markup\Colors.mcml" />
+    <None Include="Markup\ContentList.mcml" />
+    <None Include="Markup\CoreControls.mcml" />
     <None Include="Markup\Editbox.mcml" />
+    <None Include="Markup\EditBoxWithKeyboard.mcml" />
+    <None Include="Markup\EpisodeResult.mcml" />
+    <None Include="Markup\ExpandCollapseButton.mcml" />
+    <None Include="Markup\FilterList.mcml" />
     <None Include="Markup\FontNames.mcml" />
-    <None Include="Markup\Login.mcml">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Markup\HostViewItem.mcml" />
-    <None Include="Markup\SecureEditbox.mcml" />
-    <None Include="packages.config" />
+    <None Include="Markup\Footer.mcml" />
+    <None Include="Markup\Foreground.mcml" />
+    <None Include="Markup\ForegroundLoading.mcml" />
+    <None Include="Markup\Header.mcml" />
+    <None Include="Markup\HeaderButton.mcml" />
+    <None Include="Markup\HeaderText.mcml" />
+    <None Include="Markup\Images.mcml" />
+    <None Include="Markup\Keyboard.mcml" />
+    <None Include="Markup\KeyboardContents.mcml" />
+    <None Include="Markup\KeyboardPage.mcml" />
+    <None Include="Markup\MainMenu.mcml" />
+    <None Include="Markup\Page.Login.mcml" />
+    <None Include="Markup\Page.Test.mcml" />
+    <None Include="Markup\Pivot.mcml" />
+    <None Include="Markup\PivotItem.mcml" />
+    <None Include="Markup\ProgressBar.mcml" />
+    <None Include="Markup\SearchResult.mcml" />
+    <None Include="Markup\SimpleButton.mcml" />
+    <None Include="Markup\SimpleCheckbox.mcml" />
+    <None Include="Markup\SimpleEditbox.mcml" />
+    <None Include="Markup\SimpleRadioButton.mcml" />
+    <None Include="Markup\SimpleRadioButtonGroup.mcml" />
+    <None Include="Markup\SimpleSpinner.mcml" />
+    <None Include="Markup\Sounds.mcml" />
+    <None Include="Markup\StaticPivot.mcml" />
+    <None Include="Markup\ThumbnailButton.mcml" />
+    <None Include="Markup\TreeNodeItem.mcml" />
+    <None Include="Markup\TreeViewHost.mcml" />
     <None Include="Plex.snk" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -103,10 +136,7 @@
   <ItemGroup>
     <Content Include="Markup\Button.mcml" />
     <Content Include="Markup\Controls.mcml" />
-    <Content Include="Markup\Menu.mcml" />
-    <Content Include="Markup\RepeatItem.mcml" />
     <Content Include="Markup\Styles.mcml" />
-    <Content Include="Markup\Test.mcml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources.resx">

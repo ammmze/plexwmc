@@ -63,6 +63,36 @@ namespace PlexWMC {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Animations {
+            get {
+                object obj = ResourceManager.GetObject("Animations", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Background {
+            get {
+                object obj = ResourceManager.GetObject("Background", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Base {
+            get {
+                object obj = ResourceManager.GetObject("Base", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Button {
             get {
                 object obj = ResourceManager.GetObject("Button", resourceCulture);
@@ -73,9 +103,39 @@ namespace PlexWMC {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] CheckBox {
+            get {
+                object obj = ResourceManager.GetObject("CheckBox", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Colors {
+            get {
+                object obj = ResourceManager.GetObject("Colors", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Controls {
             get {
                 object obj = ResourceManager.GetObject("Controls", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] CoreControls {
+            get {
+                object obj = ResourceManager.GetObject("CoreControls", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -102,6 +162,16 @@ namespace PlexWMC {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] ExpandCollapseButton {
+            get {
+                object obj = ResourceManager.GetObject("ExpandCollapseButton", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] FontNames {
             get {
                 object obj = ResourceManager.GetObject("FontNames", resourceCulture);
@@ -112,9 +182,9 @@ namespace PlexWMC {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Menu {
+        internal static byte[] Foreground {
             get {
-                object obj = ResourceManager.GetObject("Menu", resourceCulture);
+                object obj = ResourceManager.GetObject("Foreground", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -122,9 +192,9 @@ namespace PlexWMC {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] RepeatItem {
+        internal static byte[] ForegroundLoading {
             get {
-                object obj = ResourceManager.GetObject("RepeatItem", resourceCulture);
+                object obj = ResourceManager.GetObject("ForegroundLoading", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -132,9 +202,169 @@ namespace PlexWMC {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] SecureEditbox {
+        internal static byte[] Header {
             get {
-                object obj = ResourceManager.GetObject("SecureEditbox", resourceCulture);
+                object obj = ResourceManager.GetObject("Header", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] HeaderButton {
+            get {
+                object obj = ResourceManager.GetObject("HeaderButton", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] HeaderText {
+            get {
+                object obj = ResourceManager.GetObject("HeaderText", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Images {
+            get {
+                object obj = ResourceManager.GetObject("Images", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] KeyboardContents {
+            get {
+                object obj = ResourceManager.GetObject("KeyboardContents", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Page_Login {
+            get {
+                object obj = ResourceManager.GetObject("Page_Login", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Page_Test {
+            get {
+                object obj = ResourceManager.GetObject("Page_Test", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Pivot {
+            get {
+                object obj = ResourceManager.GetObject("Pivot", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PivotItem {
+            get {
+                object obj = ResourceManager.GetObject("PivotItem", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SimpleButton {
+            get {
+                object obj = ResourceManager.GetObject("SimpleButton", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SimpleCheckbox {
+            get {
+                object obj = ResourceManager.GetObject("SimpleCheckbox", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SimpleEditbox {
+            get {
+                object obj = ResourceManager.GetObject("SimpleEditbox", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SimpleRadioButton {
+            get {
+                object obj = ResourceManager.GetObject("SimpleRadioButton", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SimpleRadioButtonGroup {
+            get {
+                object obj = ResourceManager.GetObject("SimpleRadioButtonGroup", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SimpleSpinner {
+            get {
+                object obj = ResourceManager.GetObject("SimpleSpinner", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Sounds {
+            get {
+                object obj = ResourceManager.GetObject("Sounds", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] StaticPivot {
+            get {
+                object obj = ResourceManager.GetObject("StaticPivot", resourceCulture);
                 return ((byte[])(obj));
             }
         }

@@ -1,7 +1,7 @@
 <Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
       xmlns:cor="assembly://MSCorLib/System"
       xmlns:eb="resx://PlexWMC/PlexWMC.Resources/Editbox"
-      xmlns:seb="resx://PlexWMC/PlexWMC.Resources/SecureEditbox"
+      xmlns:core="resx://PlexWMC/PlexWMC.Resources/CoreControls"
       xmlns:me="Me">
 
   <UI Name="Login">
@@ -16,38 +16,38 @@
                   String="myPlex Username/Email"/>
       <cor:String Name="PasswordLabel"
                   String="myPlex Password"/>
-      <EditableText Name="Name"
-                    Value="Anonymous"/>
+      <EditableText Name="Username"
+                    Value="example"/>
+      <EditableText Name="Password"
+                    Value="example"/>
 
     </Locals>
 
     <Rules>
       <Default Target="[UsernameLabelText.Content]"
-               Value="[UsernameLabel]"/>
+                Value="[UsernameLabel]"/>
       <Default Target="[PasswordLabelText.Content]"
-               Value="[PasswordLabel]"/>
+                Value="[PasswordLabel]"/>
     </Rules>
 
     <Content>
-      <Panel>
-          <Layout>
-              <FlowLayout Orientation="Vertical"
+      <Panel Layout="Fill">
+        <Layout>
+          <FlowLayout Orientation="Vertical"
                           Spacing="4,0"/>
-            </Layout>
+          </Layout>
         <Children>
+          
           <Text Name="UsernameLabelText"
-                Color="[MyColor]"
+               Color="[MyColor]"
                 Font="Calibri, 24"/>
-          <eb:Editbox EditableText="[Name]" />
+          <eb:Editbox EditableText="[Username]" />
           <Text Name="PasswordLabelText"
-                Color="[MyColor]"
+               Color="[MyColor]"
                 Font="Calibri, 24"/>
-          <seb:SecureEditbox>
-            <!-- Test EditableText. -->
-            <EditableText>
-              <SecureEditableText/>
-            </EditableText>
-          </seb:SecureEditbox>
+          <eb:Editbox EditableText="[Password]" PasswordMasked="true" />
+
+          <core:Background Name="Background" FillColor="Blue" Visible="true"/>
         </Children>
       </Panel>
     </Content>
