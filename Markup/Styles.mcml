@@ -6,5 +6,52 @@
          Color="Firebrick"/>
   <Color Name="SelectedColor"
          Color="Green"/>
+  
+  <!-- These style names are taken from the Design Guidelines spec. -->
+  <!-- There should be a 1-to-1 mapping to enable easy editing. -->
+
+  <Color Name="Background.A" Color="133,146,148"/>
+  <Color Name="Background.B" Color="80, 95, 108"/>
+  <Color Name="Background.C" Color="21, 35, 39"/>
+
+  <Color Name="Container.A" Color="191,130,130,130"/>
+  <Color Name="Container.B" Color="191,55, 62, 64"/>
+
+  <Color Name="Text.Title"	  Color="Black"/>
+  <Color Name="Text.Copy"	    Color="White"/>
+  <Color Name="Text.Active"   Color="Black"/>
+  <Color Name="Text.Negative" Color="White"/>
+
+  <Color Name="Accent.A" Color="255,255,255"/>
+  <Color Name="Accent.B" Color="182,206,0"/>
+
+  <Color Name="Netflix.Red" Color="185,9,11"/>
+
+  <!-- Fonts -->
+
+  <Font Name="MainMenuSectionTitle" Font="Calibri Bold,48"/>
+  <Font Name="SectionTitle"         Font="Calibri Bold,32"/>
+  <Font Name="TitleText"            Font="Calibri Bold,24"/>
+  <Font Name="CopyText"             Font="Calibri,22"/>
+  <Font Name="SecondaryText"        Font="Calibri,18"/>
+  <Font Name="TertiaryText"         Font="Calibri,16"/>
+  <Font Name="GalleryItemSubText"   Font="Calibri,14"/>
+
+  <Font Name="EditText"             Font="Segoe UI,20"/>
+  <Font Name="KeyboardText"         Font="Segoe UI,18"/>
+
+
+  <!-- Shared image resources -->
+
+  <Image Name="ContainerImage" Source="resx://vmcNetFlix/vmcNetFlix.Resources/Container" NineGrid="40,40,40,40"/>
+  <Image Name="ButtonFocusImage" Source="resx://vmcNetFlix/vmcNetFlix.Resources/ButtonFocus" NineGrid="4,4,4,4"/>
+  <Image Name="ButtonNonFocusImage" Source="resx://vmcNetFlix/vmcNetFlix.Resources/ButtonNonFocus" NineGrid="4,4,4,4"/>
+  <Image Name="ButtonNonFocusImageFade" Source="resx://vmcNetFlix/vmcNetFlix.Resources/ButtonNonFocusFade" NineGrid="4,4,4,4"/>
+
+
+  <!-- Sounds -->
+
+  <!--<Sound Name="FocusSound" Source="file://../Images/Focus_a.wav"/>-->
+  <!--<Sound Name="SelectSound" Source="file://../Images/Select_a.wav"/>-->
 
 </Mcml>

@@ -127,11 +127,20 @@
   <data name="DialogCaption" xml:space="preserve">
     <value>Button Selected</value>
   </data>
+  <data name="Editbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>markup\editbox.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FontNames" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>markup\fontnames.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>markup\menu.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="RepeatItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>markup\repeatitem.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SecureEditbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>markup\secureeditbox.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Styles" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>markup\styles.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

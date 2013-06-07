@@ -1,0 +1,57 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+      xmlns:cor="assembly://MSCorLib/System"
+      xmlns:eb="resx://PlexWMC/PlexWMC.Resources/Editbox"
+      xmlns:seb="resx://PlexWMC/PlexWMC.Resources/SecureEditbox"
+      xmlns:me="Me">
+
+  <UI Name="Login">
+
+    <Properties>
+      <Color Name="MyColor"
+             Color="White"/>
+    </Properties>
+
+    <Locals>
+      <cor:String Name="UsernameLabel"
+                  String="myPlex Username/Email"/>
+      <cor:String Name="PasswordLabel"
+                  String="myPlex Password"/>
+      <EditableText Name="Name"
+                    Value="Anonymous"/>
+
+    </Locals>
+
+    <Rules>
+      <Default Target="[UsernameLabelText.Content]"
+               Value="[UsernameLabel]"/>
+      <Default Target="[PasswordLabelText.Content]"
+               Value="[PasswordLabel]"/>
+    </Rules>
+
+    <Content>
+      <Panel>
+          <Layout>
+              <FlowLayout Orientation="Vertical"
+                          Spacing="4,0"/>
+            </Layout>
+        <Children>
+          <Text Name="UsernameLabelText"
+                Color="[MyColor]"
+                Font="Calibri, 24"/>
+          <eb:Editbox EditableText="[Name]" />
+          <Text Name="PasswordLabelText"
+                Color="[MyColor]"
+                Font="Calibri, 24"/>
+          <seb:SecureEditbox>
+            <!-- Test EditableText. -->
+            <EditableText>
+              <SecureEditableText/>
+            </EditableText>
+          </seb:SecureEditbox>
+        </Children>
+      </Panel>
+    </Content>
+
+  </UI>
+
+</Mcml>
