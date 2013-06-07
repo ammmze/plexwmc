@@ -1,0 +1,15 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+	  xmlns:me="Me">
+
+  <!-- Core controls -->
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/Base"/>
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/Controls"/>
+
+	<!-- Common page controls -->
+	<Aggregate Source="resx://PlexWMC/PlexWMC.Resources/Header"/>
+	<Aggregate Source="resx://PlexWMC/PlexWMC.Resources/Footer"/>
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/BackgroundLayer"/>
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/ForegroundLoading"/>
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/ForegroundLayer"/>
+
+</Mcml>

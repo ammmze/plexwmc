@@ -1,0 +1,130 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+	  xmlns:app="assembly://PlexWMC/PlexWMC"
+	  xmlns:sys="assembly://mscorlib/System"
+	  xmlns:styles="resx://PlexWMC/PlexWMC.Resources/Styles"
+	  xmlns:core="resx://PlexWMC/PlexWMC.Resources/CoreControls"
+	  xmlns:me="Me">
+
+  <!-- The settings page -->
+  <UI Name="SettingsStoragePage">
+    <Properties>
+      <app:SettingsCommand Name="SettingsCommand" SettingsCommand="$Required"/>
+      <app:Application Name="Application" Application="$Required"/>
+
+      <!-- Video Storage Directory -->
+      <EditableText Name="VideoDirectory" Description="resx://PlexWMC/PlexWMC.Resources/Shell_VideoDirectory" Value="C:\"/>
+
+    </Properties>
+
+    <Locals>
+      <Command Name="Save" Description="resx://PlexWMC/PlexWMC.Resources/Shell_Save"/>
+      <Command Name="Cancel" Description="resx://PlexWMC/PlexWMC.Resources/Shell_Cancel"/>
+
+      <ScrollingData Name="ScrollingData"/>
+    </Locals>
+
+    <Rules>
+      <Binding Source="[Application.IsBusy]" Target="[Foreground.Visible]"/>
+
+      <!-- Save settings -->
+      <Changed Source="[Save.Invoked]">
+        <Actions>
+          <Invoke Target="[Application.GoBack]"/>
+        </Actions>
+      </Changed>
+
+      <!-- Cancel settings -->
+      <Changed Source="[Cancel.Invoked]">
+        <Actions>
+          <Invoke Target="[Application.GoBack]"/>
+        </Actions>
+      </Changed>
+
+      <!-- When enter is presed in the VideoDirectory field, initialize the directory list -->
+      <Changed Source="[VideoDirectory.Submitted]">
+        <Actions>
+          <Invoke Target="[Application.InitDirectory]" DirectoryName="[VideoDirectory.Value]"/>
+        </Actions>
+      </Changed>
+
+    </Rules>
+
+    <Content>
+      <Panel Layout="Anchor">
+        <Children>
+
+          <core:Foreground Name="Foreground" Visible="true"/>
+
+          <Text Name="Title" Content="[SettingsCommand.Description]" Color="color://styles:Text.Copy" Font="font://styles:SectionTitle">
+            <LayoutInput>
+              <AnchorLayoutInput Left="Parent,0,105" Top="Parent,0,40" Horizontal="Near"/>
+            </LayoutInput>
+          </Text>
+
+          <core:Button Name="SaveButton" Model="[Save]" FocusOrder="9" TextMargins="0,0,0,0" Margins="10,0,10,0"
+               TextColor="color://styles:Text.Copy" TextFocusColor="color://styles:Text.Copy"
+							 TextFont="font://styles:TitleText" TileMinSize="100,0" TileMaxSize="550,0">
+            <LayoutInput>
+              <AnchorLayoutInput Left="Title,0,10" Top="Title,1,20"/>
+            </LayoutInput>
+          </core:Button>
+
+          <core:Button Name="CancelButton" Model="[Cancel]" FocusOrder="10" TextMargins="0,0,0,0" Margins="10,0,10,0"
+               TextColor="color://styles:Text.Copy" TextFocusColor="color://styles:Text.Copy"
+							 TextFont="font://styles:TitleText" TileMinSize="100,0" TileMaxSize="550,0">
+            <LayoutInput>
+              <AnchorLayoutInput Left="Title,0,10" Top="SaveButton,1,10"/>
+            </LayoutInput>
+          </core:Button>
+
+          <Panel Name="ContentArea" Layout="VerticalFlow">
+            <LayoutInput>
+              <AnchorLayoutInput Left="Parent,0,400" Top="Title,1,40" Horizontal="Fill"/>
+            </LayoutInput>
+            <Children>
+
+              <!-- Video Directory -->
+              <Text Content="[VideoDirectory.Description]" Color="color://styles:Text.Copy" Font="font://styles:CopyText"/>
+              <core:EditBoxWithKeyboard Name="VideoDirectoryEdit" Model="[VideoDirectory]" Application="[Application]" FocusOrder="0"/>
+
+            </Children>
+          </Panel>
+
+          <core:Background Name="Background" ShowTheme="[Application.ShowTheme]" Visible="true"/>
+
+        </Children>
+      </Panel>
+    </Content>
+  </UI>
+
+  <UI Name="Line">
+    <Properties>
+      <app:Application Name="Application" Application="$Required"/>
+      <sys:String Name="Text" String="$Required"/>
+      <EditableText Name="EditableTextUpdate" EditableText="$Required"/>
+    </Properties>
+
+    <Locals>
+      <ClickHandler Name="ClickHandler"/>
+    </Locals>
+
+    <Rules>
+      <Condition Source="[Input.KeyFocus]" SourceValue="true" Target="[Label.Color]" Value="Red"/>
+
+      <Rule>
+        <Conditions>
+          <Modified Source="[ClickHandler.Invoked]"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[EditableTextUpdate.Value]" Value="[Text]"/>
+          <Invoke Target="[Application.DirectoryClicked]" DirectoryName="[Text]"/>
+        </Actions>
+      </Rule>
+    </Rules>
+
+    <Content>
+      <Text Name="Label" Content="[Text]" Color="AntiqueWhite" MouseInteractive="true"/>
+    </Content>
+  </UI>
+
+</Mcml>

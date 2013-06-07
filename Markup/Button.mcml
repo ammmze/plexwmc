@@ -1,58 +1,126 @@
-<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
-      xmlns:s="resx://PlexWMC/PlexWMC.Resources/Styles">
+<Mcml
+	xmlns="http://schemas.microsoft.com/2008/mcml"
+	xmlns:sys="assembly://mscorlib/System"
+	xmlns:styles="resx://PlexWMC/PlexWMC.Resources/Styles"
+	xmlns:fonts="resx://PlexWMC/PlexWMC.Resources/FontNames"
+	xmlns:me="Me">
 
-  <UI Name="Button">
+	<UI Name="Button">
+		<Properties>
+			<!-- The action that will be invoked when this button is pressed -->
+			<ICommand Name="Model" ICommand="$Required"/>
 
-    <Properties>
-      <ICommand Name="Model"
-                ICommand="$Required"/>
-      <Color Name="MyNonFocusColor"
-             Color="color://s:NonFocusColor"/>
-      <Color Name="MyFocusColor"
-             Color="color://s:FocusColor"/>
-      <Color Name="MySelectedColor"
-             Color="color://s:SelectedColor"/>
+			<!-- Button label properties -->
+			<Color Name="TextColor" Color="White"/>
+			<Color Name="TextFocusColor" Color="White"/>
+			<Color Name="TextSelectedColor" Color="color://styles:Netflix.Red"/>
+			<Font Name="TextFont" Font="font://me:Font"/>
+			<Inset Name="TextMargins" Inset="8,-2,8,2"/>
+			<sys:Boolean Name="CenterText" Boolean="false"/>
+
+			<!-- Tile metrics -->
+			<Size Name="TileMinSize" Size="0,32"/>
+			<Size Name="TileMaxSize" Size="300,32"/>
+
+			<!-- Images -->
+			<Image Name="Image" Image="resx://PlexWMC/PlexWMC.Resources/ButtonNoFocus"/>
+			<Image Name="FocusImage" Image="resx://PlexWMC/PlexWMC.Resources/ButtonLeftFocus"/>
     </Properties>
 
-    <Locals>
-      <ClickHandler Name="Clicker"/>
-    </Locals>
+		<Locals>
+			<!-- Make this button clickable -->
+			<ClickHandler Name="Clicker"/>
+		</Locals>
 
-    <Rules>
-      <Binding Source="[Model.Description]"
-               Target="[Label.Content]"/>
-      <Binding Source="[Model]"
-               Target="[Clicker.Command]"/>
-      <Condition Source="[Clicker.Clicking]"
-                 SourceValue="true">
-        <Actions>
-          <Set Target="[Background.Content]"
-               Value="[MySelectedColor]"/>
-        </Actions>
-      </Condition>
-      <Condition Source="[Input.KeyFocus]"
-                 SourceValue="true">
-        <Actions>
-          <Set Target="[Background.Content]"
-               Value="[MyFocusColor]"/>
-        </Actions>
-      </Condition>
-    </Rules>
+		<Rules>
+			<!-- Bind the button's label and command-->
+			<Binding Source="[Model.Description]" Target="[Label.Content]"/>
+			<Binding Source="[Model]" Target="[Clicker.Command]"/>
 
-    <Content>
-      <ColorFill Name="Background"
-                 Content="[MyNonFocusColor]"
-                 Padding="5,5,5,5"
-                 MinimumSize="300,50"
-                 MaximumSize="300,50">
-        <Children>
-          <Text Name="Label"
-                Color="Black"
-                Font="Calibri,24"/>
-        </Children>
-      </ColorFill>
-    </Content>
+			<!-- Pressed styling -->
+			<Condition Source="[Clicker.Clicking]" SourceValue="true">
+				<Actions>
+					<PlayAnimation Target="[Background]" Animation="animation://me:ButtonPress"/>
+				</Actions>
+			</Condition>
 
-  </UI>
+			<!-- Focused styling -->
+			<Condition Source="[Input.KeyFocus]" SourceValue="true">
+				<Actions>
+          <Set Target="[Background.Content]" Value="[FocusImage]"/>
+          <Set Target="[Label.Color]" Value="[TextFocusColor]"/>
+				</Actions>
+			</Condition>
 
+			<!-- Selected styling -->
+			<Condition Source="[Model.Selected]" SourceValue="true">
+				<Actions>
+					<Set Target="[Label.Color]" Value="[TextSelectedColor]"/>
+				</Actions>
+			</Condition>
+
+			<!-- Hook up dynamic text style properties. -->
+			<Binding Source="[TextColor]" Target="[Label.Color]"/>
+			<Binding Source="[TextFont]" Target="[Label.Font]"/>
+			<Binding Source="[TextMargins]" Target="[Label.Margins]"/>
+
+			<!-- Change the layout if using the "center" option -->
+			<Condition Source="[CenterText]" SourceValue="true"
+				Target="[Background.Layout]" Value="Center"/>
+
+			<!-- Accessibility -->
+			<Binding Target="[Accessible.IsPressed]"            Source="[Clicker.Clicking]"/>
+			<Binding Target="[Accessible.IsFocusable]"          Source="[Input.KeyInteractive]"/>
+			<Binding Target="[Accessible.IsFocused]"            Source="[Input.KeyFocus]"/>
+			<Binding Target="[Accessible.Name]"                 Source="[Model.Description]"/>
+			<Default Target="[Accessible.DefaultActionCommand]" Value="[Model]"/>
+			<Default Target="[Accessible.DefaultAction]"        Value="Press"/>
+			<Default Target="[Accessible.Role]"                 Value="PushButton"/>
+		</Rules>
+
+		<Content>
+			<!-- Background -->
+			<Graphic Name="Background" Content="[Image]" SizingPolicy="SizeToChildren"
+					MinimumSize="[TileMinSize]" MaximumSize="[TileMaxSize]">
+
+				<Animations>
+					<Animation Animation="animation://me:ButtonFocus"/>
+					<Animation Animation="animation://me:ButtonNoFocus"/>
+				</Animations>
+
+				<Children>
+
+					<!-- Label -->
+					<Text Name="Label" Font="[TextFont]" Color="[TextColor]" Margins="[TextMargins]"/>
+
+				</Children>
+			</Graphic>
+		</Content>
+	</UI>
+
+  <!-- Animations -->
+	<Animation Name="ButtonPress" Loop="0" CenterPointPercent="0.5,0.5,1.0">
+		<Keyframes>
+			<ScaleKeyframe Time="0.00" RelativeTo="Current" Interpolation="Log"/>
+			<ScaleKeyframe Time="0.08" Value="0.9,0.9,1.0"/>
+			<ScaleKeyframe Time="0.15" Value="1.0,1.0,1.0"/>
+		</Keyframes>
+	</Animation>
+
+	<Animation Name="ButtonFocus" Loop="-1" CenterPointPercent="0.5,0.5,1.0" Type="GainFocus">
+		<Keyframes>
+			<AlphaKeyframe Time="0.00" Value="0.8" RelativeTo="Current" Interpolation="Linear"/>
+			<AlphaKeyframe Time="1.5" Value="1.0" RelativeTo="Current" Interpolation="Linear"/>
+			<AlphaKeyframe Time="2.5" Value="0.8"/>
+		</Keyframes>
+	</Animation>
+
+	<Animation Name="ButtonNoFocus" Loop="0" CenterPointPercent="0.5,0.5,1.0" Type="LoseFocus">
+		<Keyframes>
+			<AlphaKeyframe Time="0.00" RelativeTo="Current" Interpolation="Linear"/>
+			<AlphaKeyframe Time="0.04" Value="1.0"/>
+		</Keyframes>
+	</Animation>
+
+  <Font Name="Font"      FontName="fonts:RegularFontName"  FontSize="20" />
 </Mcml>

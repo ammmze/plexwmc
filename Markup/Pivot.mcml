@@ -1,0 +1,112 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+	    xmlns:cor="assembly://MSCorLib/System"
+      xmlns:me="Me"
+      >
+
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/PivotItem" />
+
+  <UI Name="Pivot">
+
+    <Properties>
+
+      <Choice Name="Model" Choice="$Required"/>
+      <Font Name="TextFont" Font="font://me:Font"/>
+      <Font Name="FocusedFont" Font="font://me:FocusFont"/>
+
+      <cor:Int32 Name="DefaultFocus" cor:Int32="0"/>
+
+    </Properties>
+
+    <Locals>
+
+      <ScrollingHandler Name="ScrollingHandler" HandlerStage="Bubbled" />
+      <ScrollingData Name="ScrollData" LockedPosition="0.25" />
+
+    </Locals>
+
+    <Rules>
+
+      <Default Target="[ScrollingHandler.ScrollingData]" Value="[ScrollData]" />
+      <Default Target="[ScrollData.Repeater]" Value="[ButtonRepeater]" />
+
+      <Rule ConditionLogicalOp="And">
+        <Conditions>
+          <Equality Source="[Input.DeepMouseFocus]" Value="true"/>
+          <Equality Source="[Input.DeepKeyFocus]" Value="false"/>
+          <Equality Source="[Model.Description]" Value=""/>
+        </Conditions>
+        <Actions>
+          <Set Target="[Model.Description]" Value="Active"/>
+          <PlayAnimation Animation="animation://me:PivotItemFocusOn" Target="[Scroller]" />
+        </Actions>
+      </Rule>
+
+      <Rule ConditionLogicalOp="And">
+        <Conditions>
+          <Equality Source="[Input.DeepMouseFocus]" Value="false"/>
+          <Equality Source="[Input.DeepKeyFocus]" Value="true"/>
+          <Equality Source="[Model.Description]" Value=""/>
+        </Conditions>
+        <Actions>
+          <Set Target="[Model.Description]" Value="Active"/>
+          <PlayAnimation Animation="animation://me:PivotItemFocusOn" Target="[Scroller]" />
+        </Actions>
+      </Rule>
+
+      <Rule ConditionLogicalOp="And">
+        <Conditions>
+          <Equality Source="[Input.DeepMouseFocus]" Value="false"/>
+          <Equality Source="[Input.DeepKeyFocus]" Value="false"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[Model.Description]" Value=""/>
+          <PlayAnimation Animation="animation://me:PivotItemFocusOff" Target="[Scroller]" />
+        </Actions>
+      </Rule>
+
+      <Binding Source="[Model.Options]" Target="[ButtonRepeater.Source]"/>
+    </Rules>
+
+    <Content>
+
+      <Scroller Name="Scroller"
+                Orientation="Horizontal"
+                FocusPadding="100"
+                ScrollingData="[ScrollData]"
+                CenterPointPercent="0.75,0.5,0.5"
+                Scale="0.9,0.9,0.9"
+                Navigation="RememberFocus,PreferFocusOrder,ContainHorizontal"
+                FadeSize="-5"
+                >
+        <Children>
+
+          <Repeater Source="[Model.Options]" DefaultFocusIndex="[DefaultFocus]" Layout="HorizontalFlow" Navigation="RememberFocus" Name="ButtonRepeater">
+
+            <Animations>
+              <Animation Animation="animation://me:ScrollerMoveItemSmooth"/>
+            </Animations>
+
+            <Layout>
+              <FlowLayout Repeat="Never" RepeatGap="100,0" Spacing="50,0" ItemAlignment="Near"/>
+            </Layout>
+
+            <Content>
+              <me:PivotItem Label="[RepeatedItem!ModelItem.Description]"
+                            Index="[RepeatedItemIndex]"
+                            Model="[Model]"
+                            TextFont="[TextFont]"
+                            FocusedFont="[FocusedFont]"
+                            />
+            </Content>
+
+          </Repeater>
+
+        </Children>
+      </Scroller>
+
+    </Content>
+  </UI>
+
+  <Font Name="Font"                     FontName="Segoe UI" FontSize="20" />
+  <Font Name="FocusFont"                FontName="Segoe UI" FontSize="22" FontStyle="Bold" />
+</Mcml>

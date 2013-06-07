@@ -1,0 +1,6 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+      >
+
+  <Image Name="AppIcon"   Source="resx://PlexWMC/PlexWMC.Resources/AppIcon" />
+
+</Mcml>

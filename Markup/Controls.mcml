@@ -1,3 +1,24 @@
-<Mcml xmlns="http://schemas.microsoft.com/2008/mcml">
-	<Aggregate Source="resx://PlexWMC/PlexWMC.Resources/Button"/>
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+      xmlns:cor="assembly://MSCorLib/System"
+      xmlns:a="assembly://PlexWMC/PlexWMC"
+      xmlns:me="Me"
+      >
+
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/Button"/>
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/CheckBox"/>
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/EditBox"/>
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/EditBoxWithKeyboard"/>
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/HeaderButton" />
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/HeaderText" />
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/ProgressBar"/>
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/SimpleButton" />
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/SimpleCheckbox" />
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/SimpleEditbox" />
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/SimpleRadioButtonGroup" />
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/SimpleSpinner" />
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/ThumbnailButton"/>
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/TreeViewHost" />
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/Pivot" />
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/StaticPivot" />
+
 </Mcml>

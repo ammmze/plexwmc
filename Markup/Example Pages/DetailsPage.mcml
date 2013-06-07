@@ -1,0 +1,155 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+	  xmlns:app="assembly://PlexWMC/PlexWMC"
+	  xmlns:sys="assembly://mscorlib/System"
+	  xmlns:styles="resx://PlexWMC/PlexWMC.Resources/Styles"
+	  xmlns:core="resx://PlexWMC/PlexWMC.Resources/CoreControls"
+    xmlns:addin="assembly://Microsoft.MediaCenter/Microsoft.MediaCenter.Hosting"
+	  xmlns:me="Me">
+
+	<!-- A details page -->
+	<UI Name="DetailsPage">
+		<Properties>
+			<app:DetailsPage Name="Page" DetailsPage="$Required"/>
+			<app:Application Name="Application" Application="$Required"/>
+		</Properties>
+
+		<Locals>
+      <Environment Name="Environment"/>
+      <ShortcutHandler Name="PlayHandler" Shortcut="Play" Handle="true" HandlerStage="Bubbled"/>
+      <!-- AddInHost is where all Windows Media Center-specific services start -->
+      <!-- from. It must appear in the Locals section of a markup file.        -->
+      <addin:AddInHost Name="AddInHost"/>
+    </Locals>
+
+		<Rules>
+      <Binding Source="[Application.IsBusy]" Target="[Foreground.Visible]"/>
+      <Binding Source="[Application.IsBusy]" Target="[ForegroundLoading.Visible]"/>
+
+      <Changed Source="[PlayHandler.Invoked]">
+        <Conditions>
+          <IsValid Source="[AddInHost.MediaCenterEnvironment.MediaExperience]"/>
+        </Conditions>
+        <Actions>
+          <Invoke Target="[AddInHost.MediaCenterEnvironment.MediaExperience.GoToFullScreen]"/>
+        </Actions>
+      </Changed>
+
+    </Rules>
+
+    <Content>
+			<Panel Layout="Anchor">
+				<Children>
+
+          <core:Foreground Name="Foreground" Visible="true"/>
+          <core:ForegroundLoading Name="ForegroundLoading" Visible="true"/>
+
+          <Panel Name="DetailWindow" FocusOrder="0">
+						<LayoutInput>
+							<AnchorLayoutInput Left="Parent,0,20" Right="Parent,1,-20" Horizontal="Fill"
+								Top="Parent,0,20" Bottom="Parent,1,-20" Vertical="Fill"/>
+						</LayoutInput>
+						<Children>
+
+							<me:DetailsPane Page="[Page]" Margins="65,50,65,50"/>
+
+						</Children>
+					</Panel>
+
+					<Graphic Content="resx://PlexWMC/PlexWMC.Resources/Gradient_Top">
+						<LayoutInput>
+							<AnchorLayoutInput Top="Parent,0" Left="Parent,0" Right="Parent,1"/>
+						</LayoutInput>
+					</Graphic>
+
+					<Graphic Content="resx://PlexWMC/PlexWMC.Resources/Gradient_Bottom">
+						<LayoutInput>
+							<AnchorLayoutInput Bottom="Parent,1" Left="Parent,0" Right="Parent,1"/>
+						</LayoutInput>
+					</Graphic>
+
+          <core:Background Name="Background" ShowTheme="[Application.ShowTheme]" Visible="true"/>
+
+        </Children>
+			</Panel>
+		</Content>
+	</UI>
+
+	<!-- The primary display area of a details page -->
+	<UI Name="DetailsPane">
+		<Properties>
+			<app:DetailsPage Name="Page" DetailsPage="$Required"/>
+		</Properties>
+
+		<Content>
+			<Panel Layout="Anchor">
+				<Children>
+
+          <Panel Name="PaneImage" Layout="VerticalFlow">
+            <LayoutInput>
+              <AnchorLayoutInput Left="Parent,0" Right="Parent,0,400"
+                                 Top="Parent,0" Bottom="Parent,0,420" Vertical="Fill" Horizontal="Near"/>
+            </LayoutInput>
+            <Children>
+
+              <!-- Background graphic -->
+              <Graphic Name="BackgroundGraphic" Content="[Page.BackgroundImage]"
+                SizingPolicy="SizeToContent"
+                MaintainAspectRatio="true"
+                Scale="2.5,2.5,2.5"/>
+
+            </Children>
+          </Panel>
+
+          <Panel Name="PaneCommands" Layout="VerticalFlow">
+            <LayoutInput>
+              <AnchorLayoutInput Left="Parent,0" Right="Parent,0,400"
+                                 Top="Parent,0,420" Bottom="Parent,1" Vertical="Fill" Horizontal="Near"/>
+            </LayoutInput>
+            <Children>
+
+              <!-- List of available commands -->
+              <Repeater Name="Commands" Source="[Page.Commands]" Layout="VerticalFlow">
+                <Content>
+
+                  <core:Button Model="[RepeatedItem!Command]" TileMinSize="100,30" TileMaxSize="400,30"/>
+
+                </Content>
+              </Repeater>
+
+            </Children>
+          </Panel>
+
+          <Panel Name="PaneDetails" Layout="VerticalFlow">
+						<LayoutInput>
+              <AnchorLayoutInput Left="Parent,0,400" Right="Parent,1"
+                                 Top="Parent,0" Bottom="Parent,1" Vertical="Fill" Horizontal="Near"/>
+						</LayoutInput>
+						<Children>
+
+							<Text Name="Title" Content="[Page.Title]" Color="White" Font="font://me:TitleFont" WordWrap="true" Margins="0,0,0,10">
+              </Text>
+
+              <Text Name="Summary" Content="[Page.Summary]" Color="White" Font="font://me:Font" WordWrap="true" MaximumLines="15" Margins="0,0,0,20">
+                <LayoutInput>
+                  <AnchorLayoutInput Top="Title,1"/>
+                </LayoutInput>
+              </Text>
+
+              <Text Name="Metadata" Content="[Page.Metadata]" Color="White" Font="font://me:Font" WordWrap="true">
+                <LayoutInput>
+                  <AnchorLayoutInput Top="Summary,1"/>
+                </LayoutInput>
+              </Text>
+
+            </Children>
+					</Panel>
+
+        </Children>
+			</Panel>
+		</Content>
+
+	</UI>
+
+  <Font Name="Font"      FontName="core:RegularFontName"  FontSize="20" />
+  <Font Name="TitleFont" FontName="core:RegularFontName"  FontSize="32" />
+</Mcml>

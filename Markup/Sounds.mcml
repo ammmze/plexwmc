@@ -1,0 +1,10 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+      >
+
+  <Sound Name="Select"          Source="resx://PlexWMC/PlexWMC.Resources/Select" />
+  <Sound Name="Miniselect"      Source="resx://PlexWMC/PlexWMC.Resources/Miniselect" />
+  <Sound Name="Focus"           Source="resx://PlexWMC/PlexWMC.Resources/Focus" />
+  <Sound Name="Error"           Source="resx://PlexWMC/PlexWMC.Resources/Error" />
+  <Sound Name="PageTransition"  Source="resx://PlexWMC/PlexWMC.Resources/PageTransition" />
+
+</Mcml>

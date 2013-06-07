@@ -1,0 +1,392 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+	  xmlns:app="assembly://PlexWMC/PlexWMC"
+	  xmlns:sys="assembly://mscorlib/System"
+	  xmlns:styles="resx://PlexWMC/PlexWMC.Resources/Styles"
+	  xmlns:content="resx://PlexWMC/PlexWMC.Resources/ContentList"
+	  xmlns:core="resx://PlexWMC/PlexWMC.Resources/CoreControls"
+    xmlns:addin="assembly://Microsoft.MediaCenter/Microsoft.MediaCenter.Hosting"
+	  xmlns:me="Me">
+
+	<!-- A gallery page -->
+	<UI Name="GalleryPage">
+		<Properties>
+      <app:MenuCategory Name="Menu" MenuCategory="$Required"/>
+      <app:Application Name="Application" Application="$Required"/>
+
+      <!-- An object to track which item in the list currently has focus. -->
+      <IntRangedValue Name="FocusedIndex"/>
+      <app:GalleryItemSize Name="ItemSize" app:GalleryItemSize="Large"/>
+    </Properties>
+
+		<Locals>
+      <sys:Boolean Name="Initialized" Boolean="false"/>
+
+      <ShortcutHandler Name="BackHandler" Shortcut="Back" Handle="true" HandlerStage="Bubbled"/>
+      <ShortcutHandler Name="PlayHandler" Shortcut="Play" Handle="true" HandlerStage="Bubbled"/>
+      <ShortcutHandler Name="FFHandler" Shortcut="FastForward" Handle="true" HandlerStage="Bubbled"/>
+      <ShortcutHandler Name="RewindHandler" Shortcut="Rewind" Handle="true" HandlerStage="Bubbled"/>
+
+      <!-- AddInHost is where all Windows Media Center-specific services start -->
+      <!-- from. It must appear in the Locals section of a markup file.        -->
+      <addin:AddInHost Name="AddInHost"/>
+
+      <AnchorLayoutInput Name="AlignToContent" Top="Content,1,50" Left="Parent,0,45" Right="Parent,1,-175"/>
+      <AnchorLayoutInput Name="AlignToBottom" Bottom="Parent,1,-80" Left="Parent,0,45" Right="Parent,1,-175"/>
+    </Locals>
+
+		<Rules>
+      <Binding Source="[Application.IsBusy]" Target="[Foreground.Visible]"/>
+
+      <Binding Source="[Menu.Categories]" Target="[MainMenu.Model]"/>
+      <Binding Source="[Menu.Categories.ChosenIndex]" Target="[MainMenu.DefaultFocus]"/>
+      <Binding Source="[Menu.Page]" Target="[Gallery.Page]"/>
+      <Binding Source="[Menu.Page]" Target="[ItemCounter.Page]"/>
+      <Binding Source="[Menu.Page.Filters]" Target="[Filter.Model]"/>
+      <Binding Source="[Menu.Page.Filters.ChosenIndex]" Target="[Filter.DefaultFocus]"/>
+      <Binding Source="[Menu.Page.ItemSize]" Target="[ItemSize]"/>
+      <Binding Source="[ItemSize]" Target="[Gallery.Page.ItemSize]"/>
+      <!--
+      -->
+
+      <Binding Source="[Menu.Page.Title]" Target="[MovieTitle.Content]"/>
+      <Binding Source="[Menu.Page.Metadata]" Target="[MovieMeta.Content]"/>
+      <Binding Source="[Menu.Page.Summary]" Target="[MovieSummary.Content]"/>
+
+
+      <!-- If Back hander invoked, prompt to quit -->
+      <Changed Source="[BackHandler.Invoked]">
+        <Actions>
+          <Invoke Target="[Application.GoQuit]"/>
+        </Actions>
+      </Changed>
+
+      <!-- If Play hander invoked, go to fullscreen -->
+      <Changed Source="[PlayHandler.Invoked]">
+        <Conditions>
+          <IsValid Source="[AddInHost.MediaCenterEnvironment.MediaExperience]"/>
+        </Conditions>
+        <Actions>
+          <Invoke Target="[AddInHost.MediaCenterEnvironment.MediaExperience.GoToFullScreen]"/>
+        </Actions>
+      </Changed>
+
+      <!-- If RewindHandler hander invoked and Large, set to Medium -->
+      <Changed Source="[RewindHandler.Invoked]">
+        <Conditions>
+          <Equality Source="[ItemSize]" Value="Large"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[ItemSize]" Value="Medium"/>
+          <Invoke Target="[Gallery.ForceRefresh]" unloadMarkup="false" InvokePolicy="Synchronous"/>
+        </Actions>
+      </Changed>
+
+      <!-- If RewindHandler hander invoked and Medium, set to Small -->
+      <Changed Source="[RewindHandler.Invoked]">
+        <Conditions>
+          <Equality Source="[ItemSize]" Value="Medium"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[ItemSize]" Value="Small"/>
+          <Invoke Target="[Gallery.ForceRefresh]" unloadMarkup="false" InvokePolicy="Synchronous"/>
+        </Actions>
+      </Changed>
+
+      <!-- If RewindHandler hander invoked and Medium, set to Small -->
+      <Changed Source="[RewindHandler.Invoked]">
+        <Conditions>
+          <Equality Source="[ItemSize]" Value="Small"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[ItemSize]" Value="Large"/>
+          <Invoke Target="[Gallery.ForceRefresh]" unloadMarkup="false" InvokePolicy="Synchronous"/>
+        </Actions>
+      </Changed>
+
+      <!-- If FFHandler hander invoked and Small, set to Medium -->
+      <Changed Source="[FFHandler.Invoked]">
+        <Conditions>
+          <Equality Source="[ItemSize]" Value="Small"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[ItemSize]" Value="Medium"/>
+          <Invoke Target="[Gallery.ForceRefresh]" unloadMarkup="false" InvokePolicy="Synchronous"/>
+        </Actions>
+      </Changed>
+
+      <!-- If FFHandler hander invoked and Medium, set to Large -->
+      <Changed Source="[FFHandler.Invoked]">
+        <Conditions>
+          <Equality Source="[ItemSize]" Value="Medium"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[ItemSize]" Value="Large"/>
+          <Invoke Target="[Gallery.ForceRefresh]" unloadMarkup="false" InvokePolicy="Synchronous"/>
+        </Actions>
+      </Changed>
+
+      <!-- If FFHandler hander invoked and Medium, set to Large -->
+      <Changed Source="[FFHandler.Invoked]">
+        <Conditions>
+          <Equality Source="[ItemSize]" Value="Large"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[ItemSize]" Value="Small"/>
+          <Invoke Target="[Gallery.ForceRefresh]" unloadMarkup="false" InvokePolicy="Synchronous"/>
+        </Actions>
+      </Changed>
+
+      <Rule>
+        <Conditions>
+          <Equality Source="[Menu.Page.Content.Count]" Value="0"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[ItemCounter.Visible]" Value="false"/>
+          <Set Target="[MovieSummary.Visible]" Value="false"/>
+          <Set Target="[MovieMeta.Visible]" Value="false"/>
+          <Set Target="[MovieTitle.Visible]" Value="false"/>
+        </Actions>
+      </Rule>
+
+      <Rule>
+        <Conditions>
+          <Equality Source="[Menu.Page.Content.Count]" ConditionOp="GreaterThan" Value="0"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[MovieTitle.Visible]" Value="true"/>
+          <Set Target="[MovieMeta.Visible]" Value="true"/>
+          <Set Target="[ItemCounter.Visible]" Value="true"/>
+        </Actions>
+      </Rule>
+
+      <!-- Large thumbnail mode -->
+      <Rule>
+        <Conditions>
+          <Equality Source="[ItemSize]" Value="Large"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[MovieSummary.Visible]" Value="true"/>
+          <Set Target="[Filter.Margins]" Value="0,-10,0,35"/>
+          <Set Target="[MovieTitle.LayoutInput]" Value="[AlignToContent]"/>
+        </Actions>
+      </Rule>
+
+      <!-- Medium thumbnail mode -->
+      <Rule>
+        <Conditions>
+          <Equality Source="[ItemSize]" Value="Medium"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[MovieSummary.Visible]" Value="false"/>
+          <Set Target="[Filter.Margins]" Value="0,-10,0,25"/>
+          <Set Target="[MovieTitle.LayoutInput]" Value="[AlignToBottom]"/>
+        </Actions>
+      </Rule>
+
+      <!-- Small thumbnail mode -->
+      <Rule>
+        <Conditions>
+          <Equality Source="[ItemSize]" Value="Small"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[MovieSummary.Visible]" Value="false"/>
+          <Set Target="[Filter.Margins]" Value="0,-10,0,15"/>
+          <Set Target="[MovieTitle.LayoutInput]" Value="[AlignToBottom]"/>
+        </Actions>
+      </Rule>
+
+      <Changed Source="[Menu.Categories.Chosen]">
+        <Actions>
+          <Set Target="[Menu.Page.Title]" Value=""/>
+          <Set Target="[Menu.Page.Metadata]" Value=""/>
+          <Set Target="[Menu.Page.Summary]" Value=""/>
+          <Set Target="[FocusedIndex.Value]" Value="0"/>
+          <Invoke Target="[Filter.ForceRefresh]" unloadMarkup="true" InvokePolicy="Synchronous"/>
+          <Invoke Target="[Gallery.ForceRefresh]" unloadMarkup="true" InvokePolicy="Synchronous"/>
+        </Actions>
+      </Changed>
+
+      <Changed Source="[Menu.Page.Filters.Chosen]">
+        <Actions>
+          <Set Target="[Menu.Page.Title]" Value=""/>
+          <Set Target="[Menu.Page.Metadata]" Value=""/>
+          <Set Target="[Menu.Page.Summary]" Value=""/>
+          <Set Target="[FocusedIndex.Value]" Value="0"/>
+          <Invoke Target="[Gallery.ForceRefresh]" unloadMarkup="true" InvokePolicy="Synchronous"/>
+        </Actions>
+      </Changed>
+
+      <Rule>
+        <Conditions>
+          <Equality Source="[Initialized]" Value="false"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[Initialized]" Value="true"/>
+        </Actions>
+      </Rule>
+
+    </Rules>
+
+		<Content>
+			<Panel Layout="Anchor">
+				<Children>
+
+          <core:Foreground Name="Foreground" Visible="true"/>
+
+          <core:Footer Name="Footer" Application="[Application]">
+            <LayoutInput>
+              <AnchorLayoutInput Right="Parent,1" Top="Parent,0"/>
+            </LayoutInput>
+          </core:Footer>
+
+          <Text Name="Version" Content="[Application.DisplayVersion]" Color="color://core:MediumBlue" Font="font://me:Font">
+            <LayoutInput>
+              <AnchorLayoutInput Left="Parent,0" Top="Parent,0"/>
+            </LayoutInput>
+          </Text>
+
+          <Panel Layout="Anchor">
+						<LayoutInput>
+							<AnchorLayoutInput Left="Parent,0" Right="Parent,1" Horizontal="Fill"
+								Top="Parent,0,50" Bottom="Parent,1,0" Vertical="Fill"/>
+						</LayoutInput>
+						<Children>
+
+              <Panel Name="Content" Layout="VerticalFlow" Margins="65,5,65,5">
+								<LayoutInput>
+									<AnchorLayoutInput Left="Parent,0" Right="Parent,1" Bottom="Parent,1,-140" Horizontal="Near" Vertical="Near"/>
+								</LayoutInput>
+                <Children>
+
+                  <!-- Menu Experiences -->
+                  <!-- <core:StaticPivot Name="MainMenu" Model="[Menu.Categories]" TextFont="font://me:MenuFont" FocusedFont="font://me:FocusMenuFont" Margins="0,0,0,0" FocusOrder="0"/> -->
+                  <core:Pivot Name="MainMenu" Model="[Menu.Categories]" TextFont="font://me:MenuFont" FocusedFont="font://me:FocusMenuFont" Margins="0,0,0,0" FocusOrder="0"/>
+
+                  <!-- Filters -->
+                  <core:Pivot Name="Filter" Model="[Menu.Page.Filters]" Margins="0,-10,0,0" FocusOrder="1"/>
+
+                  <!-- Gallery -->
+                  <me:GalleryList Name="Gallery" Page="[Menu.Page]" FocusedIndex="[FocusedIndex]" Margins="0,25,0,0"/>
+
+                </Children>
+							</Panel>
+
+              <!-- Movie Title -->
+              <Text Name="MovieTitle" Color="WhiteSmoke" Content="[Menu.Page.Title]" Font="font://me:BoldListFont">
+                <LayoutInput>
+                  <AnchorLayoutInput Top="Content,1,0" Left="Parent,0,45" Right="Parent,1,-175"/>
+                </LayoutInput>
+              </Text>
+
+              <!-- Movie Metadata -->
+              <Text Name="MovieMeta" Color="WhiteSmoke" Content="[Menu.Page.Metadata]" Font="font://me:FontSubtitle">
+                <LayoutInput>
+                  <AnchorLayoutInput Top="MovieTitle,1,0" Left="Parent,0,45"/>
+                </LayoutInput>
+              </Text>
+
+              <!-- Movie Summary -->
+              <Text Name="MovieSummary" Color="WhiteSmoke" Content="[Menu.Page.Summary]" Font="font://me:Font" WordWrap="true" MaximumLines="6" Visible="true">
+                <LayoutInput>
+                  <AnchorLayoutInput Top="MovieMeta,1,10" Left="Parent,0,45" Right="Parent,1,-45"/>
+                </LayoutInput>
+              </Text>
+
+              <!-- Item counter -->
+              <content:ItemCounter Name="ItemCounter" Page="[Menu.Page]" FocusedIndex="[FocusedIndex]" TextColor="WhiteSmoke">
+                <LayoutInput>
+                  <AnchorLayoutInput Top="MovieTitle,0,5" Right="Parent,1,-85"/>
+                </LayoutInput>
+              </content:ItemCounter>
+
+            </Children>
+					</Panel>
+
+          <core:Background Name="Background" ShowTheme="[Application.ShowTheme]" Visible="true"/>
+
+        </Children>
+			</Panel>
+		</Content>
+	</UI>
+
+
+	<!-- The scrolling area of a gallery page -->
+	<UI Name="GalleryList" BaseUI="content:ContentList">
+		<Properties>
+      <app:GalleryPage Name="Page" GalleryPage="$Required"/>
+      <Orientation Name="ScrollOrientation" Orientation="Horizontal"/>
+			<GridLayout Name="GridLayout" Orientation="Vertical" Rows="2" Spacing="0,0" AllowWrap="true" Repeat="Never"/>
+      <!-- An object to track which item in the list currently has focus -->
+      <IntRangedValue Name="FocusedIndex"/>
+    </Properties>
+
+		<Locals>
+			<Size Name="ItemSize"/>
+    </Locals>
+
+		<Rules>
+
+      <!-- Large thumbnail mode -->
+      <Rule>
+        <Conditions>
+					<Equality Source="[Page.ItemSize]" Value="Large"/>
+				</Conditions>
+				<Actions>
+					<Set Target="[ItemSize]" Value="182,255"/>
+					<Set Target="[GridLayout.Orientation]" Value="Horizontal"/>
+          <Set Target="[GridLayout.Rows]" Value="0"/>
+          <Set Target="[GridLayout.ReferenceSize]" Value="[ItemSize]"/>
+          <Set Target="[GridLayout.MajorAlignment]" Value="Near"/>
+          <Set Target="[GridLayout.MinorAlignment]" Value="Near"/>
+          <Set Target="[GridLayout.RepeatGap]" Value="0"/>
+          <Set Target="[GridLayout.AllowWrap]" Value="true"/>
+        </Actions>
+			</Rule>
+
+      <!-- Medium thumbnail mode -->
+      <Rule>
+        <Conditions>
+          <Equality Source="[Page.ItemSize]" Value="Medium"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[ItemSize]" Value="132,185"/>
+          <Set Target="[GridLayout.Orientation]" Value="Vertical"/>
+          <Set Target="[GridLayout.Rows]" Value="2"/>
+          <Set Target="[GridLayout.ReferenceSize]" Value="[ItemSize]"/>
+          <Set Target="[GridLayout.MajorAlignment]" Value="Near"/>
+          <Set Target="[GridLayout.MinorAlignment]" Value="Near"/>
+          <Set Target="[GridLayout.RepeatGap]" Value="0"/>
+          <Set Target="[GridLayout.AllowWrap]" Value="true"/>
+        </Actions>
+      </Rule>
+
+      <!-- Default to Small thumbnail mode -->
+      <Default Target="[ItemSize]" Value="90,124"/>
+      <Default Target="[GridLayout.Orientation]" Value="Vertical"/>
+			<Default Target="[GridLayout.Rows]" Value="3"/>
+      <Default Target="[GridLayout.ReferenceSize]" Value="[ItemSize]"/>
+      <Default Target="[GridLayout.MajorAlignment]" Value="Near"/>
+      <Default Target="[GridLayout.MinorAlignment]" Value="Near"/>
+      <Default Target="[GridLayout.RepeatGap]" Value="0"/>
+      <Default Target="[GridLayout.AllowWrap]" Value="true"/>
+    </Rules>
+
+		<Content Name="Item">
+
+      <content:ThumbnailButton Model="[RepeatedItem!app:ThumbnailCommand]"
+        Index="[RepeatedItemIndex]" FocusedIndex="[FocusedIndex]" Page="[Page]"
+        TileSize="[ItemSize]" ShowLabel="false"/>
+
+    </Content>
+	</UI>
+
+  <Font Name="MenuFont"      FontName="Segoe UI" FontSize="22" />
+  <Font Name="FocusMenuFont" FontName="Segoe UI" FontSize="24" FontStyle="Bold" />
+  <Font Name="FontSubtitle"  FontName="core:RegularFontName"  FontSize="16" />
+  <Font Name="Font"          FontName="core:RegularFontName"  FontSize="19" />
+  <Font Name="BoldFont"      FontName="core:RegularFontName"  FontSize="22" FontStyle="Bold"/>
+  <Font Name="ListFont"      FontName="core:BoldFontName"     FontSize="22"/>
+  <Font Name="BoldListFont"  FontName="core:BoldFontName"     FontSize="24" FontStyle="Bold"/>
+  <Font Name="TitleFont"     FontName="core:RegularFontName"  FontSize="32"/>
+  <Font Name="BoldTitleFont" FontName="core:RegularFontName"  FontSize="32" FontStyle="Bold"/>
+</Mcml>

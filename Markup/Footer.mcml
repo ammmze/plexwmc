@@ -1,0 +1,42 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+	  xmlns:styles="resx://PlexWMC/PlexWMC.Resources/Styles"
+	  xmlns:button="resx://PlexWMC/PlexWMC.Resources/Button"
+	  xmlns:app="assembly://PlexWMC/PlexWMC">
+
+	<!-- The footer for the PlexWMC app contains buttons to navigate to Search or Details. -->
+	<UI Name="Footer">
+		<Properties>
+			<app:Application Name="Application" Application="$Required"/>
+		</Properties>
+
+		<Content>
+			<Panel Navigation="PreferFocusOrder" Margins="0,20,40,0">
+				<Layout>
+					<FlowLayout Orientation="Horizontal" Spacing="10,0"/>
+				</Layout>
+				<Children>
+
+          <button:Button FocusOrder="2">
+						<Model>
+							<InvokeCommand Description="resx://PlexWMC/PlexWMC.Resources/Search" Target="[Application.GoToSearch]"/>
+						</Model>
+					</button:Button>
+
+          <button:Button FocusOrder="3">
+						<Model>
+							<InvokeCommand Description="resx://PlexWMC/PlexWMC.Resources/Downloads" Target="[Application.GoToDownloads]"/>
+						</Model>
+					</button:Button>
+
+          <button:Button FocusOrder="4">
+            <Model>
+              <InvokeCommand Description="resx://PlexWMC/PlexWMC.Resources/Settings" Target="[Application.GoToSettings]"/>
+            </Model>
+          </button:Button>
+
+        </Children>
+			</Panel>
+		</Content>
+	</UI>
+
+</Mcml>

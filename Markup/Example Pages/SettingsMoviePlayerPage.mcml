@@ -1,0 +1,136 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+	  xmlns:app="assembly://PlexWMC/PlexWMC"
+	  xmlns:sys="assembly://mscorlib/System"
+	  xmlns:styles="resx://PlexWMC/PlexWMC.Resources/Styles"
+	  xmlns:core="resx://PlexWMC/PlexWMC.Resources/CoreControls"
+	  xmlns:me="Me">
+
+  <!-- The settings page -->
+  <UI Name="SettingsMoviePlayerPage">
+    <Properties>
+      <app:SettingsCommand Name="SettingsCommand" SettingsCommand="$Required"/>
+      <app:Application Name="Application" Application="$Required"/>
+    </Properties>
+
+    <Locals>
+      <Command Name="AllDone" Description="resx://PlexWMC/PlexWMC.Resources/Shell_Done"/>
+
+      <Command Name="ResetExtender" Description="resx://PlexWMC/PlexWMC.Resources/Shell_ResetExtenderSettings"/>
+      <Command Name="SetupMoviePlayer" Description="resx://PlexWMC/PlexWMC.Resources/Shell_SetupMoviePlayer"/>
+      <Command Name="ClearCacheFiles" Description="resx://PlexWMC/PlexWMC.Resources/Shell_ClearCacheFiles"/>
+
+      <Choice Name="ExtenderSetupTimeout" Choice="[Application.ExtenderSetupTimeout]"/>
+
+      <BooleanChoice Name="UseSLPlayer" Description="resx://PlexWMC/PlexWMC.Resources/Shell_UseSLPlayer"
+				Value="[Application.UseSLPlayer]"/>
+
+      <sys:Boolean Name="Initialized" Boolean="false"/>
+
+    </Locals>
+
+    <Rules>
+      <Binding Source="[Application.IsBusy]" Target="[Foreground.Visible]"/>
+      <Binding Source="[Application.IsExtender]" Target="[ResetExtenderButton.Visible]"/>
+
+      <Rule>
+        <Conditions>
+          <Equality Source="[Initialized]" Value="false"/>
+        </Conditions>
+        <Actions>
+          <Invoke Target="[DoneButton.NavigateInto]"/>
+        </Actions>
+      </Rule>
+
+      <!-- AllDone settings -->
+      <Changed Source="[AllDone.Invoked]">
+        <Actions>
+          <Set Target="[Initialized]" Value="true"/>
+          <Set Target="[Application.ExtenderSetupTimeout]" Value="[ExtenderSetupTimeout]"/>
+          <Set Target="[Application.UseSLPlayer]" Value="[UseSLPlayer.Value]"/>
+          <Invoke Target="[Application.GoBack]"/>
+        </Actions>
+      </Changed>
+
+      <!-- Reset extender -->
+      <Changed Source="[ResetExtender.Invoked]">
+        <Actions>
+          <Invoke Target="[Application.LaunchResetExtender]"/>
+        </Actions>
+      </Changed>
+
+      <!-- Setup Movie Player -->
+      <Changed Source="[SetupMoviePlayer.Invoked]">
+        <Actions>
+          <Invoke Target="[Application.LaunchPlayerSetup]"/>
+        </Actions>
+      </Changed>
+
+      <!-- Clear Cache Files -->
+      <Changed Source="[ClearCacheFiles.Invoked]">
+        <Actions>
+          <Invoke Target="[Application.LaunchClearCache]"/>
+        </Actions>
+      </Changed>
+
+      <Default Target="[Initialized]" Value="true">
+        <Actions>
+          <Invoke Target="[DoneButton.NavigateInto]"/>
+        </Actions>
+      </Default>
+
+    </Rules>
+
+    <Content>
+      <Panel Layout="Anchor" Margins="25,25,25,25">
+        <Children>
+
+          <core:Foreground Name="Foreground" Visible="true"/>
+
+          <Text Name="Title" Content="[SettingsCommand.Description]" Color="White" Font="font://me:TitleFont">
+            <LayoutInput>
+              <AnchorLayoutInput Left="Parent,0,105" Top="Parent,0,40" Horizontal="Near"/>
+            </LayoutInput>
+          </Text>
+
+          <core:SimpleButton Name="DoneButton" Command="[AllDone]" FocusOrder="6" Margins="10,0,10,0"
+							 Text="[AllDone.Description]" Font="font://me:BoldFont" Size="151,51">
+            <LayoutInput>
+              <AnchorLayoutInput Left="Title,0,10" Top="Title,1,20"/>
+            </LayoutInput>
+          </core:SimpleButton>
+
+          <Panel Name="ContentArea" Layout="VerticalFlow">
+            <LayoutInput>
+              <AnchorLayoutInput Left="DoneButton,1,20" Right="Parent,1" Top="DoneButton,1,20"/>
+            </LayoutInput>
+            <Children>
+
+              <!-- Use Silverlight Player checkbox -->
+              <core:CheckBox Name="UseSLPlayerCheckBox" Model="[UseSLPlayer]" FocusOrder="0" Margins="0,20,0,0"/>
+
+              <core:SimpleButton Name="SetupMoviePlayerButton" Command="[SetupMoviePlayer]" FocusOrder="1" Margins="0,20,0,0"
+                   Text="[SetupMoviePlayer.Description]" Font="font://me:Font" Size="301,51"/>
+
+              <core:SimpleButton Name="ClearCacheFilesButton" Command="[ClearCacheFiles]" FocusOrder="2" Margins="0,20,0,0"
+                   Text="[ClearCacheFiles.Description]" Font="font://me:Font" Size="301,51"/>
+
+              <core:SimpleButton Name="ResetExtenderButton" Command="[ResetExtender]" FocusOrder="3" Margins="0,20,0,0"
+                   Text="[ResetExtender.Description]" Font="font://me:Font" Size="301,51"/>
+
+              <Text Content="resx://PlexWMC/PlexWMC.Resources/Shell_ExtenderSetupTimeout" Color="White" Font="font://me:Font" Margins="0,40,0,0"/>
+              <core:SimpleSpinner Name="TimeoutSpinner" Model="[ExtenderSetupTimeout]" Margins="40,0,0,0"/>
+
+            </Children>
+          </Panel>
+
+          <core:Background Name="Background" ShowTheme="[Application.ShowTheme]" Visible="true"/>
+
+        </Children>
+      </Panel>
+    </Content>
+  </UI>
+
+  <Font Name="Font"      FontName="core:RegularFontName"  FontSize="20" />
+  <Font Name="BoldFont"  FontName="core:BoldFontName"     FontSize="22" FontStyle="Bold"/>
+  <Font Name="TitleFont" FontName="core:RegularFontName"  FontSize="32" />
+</Mcml>

@@ -1,0 +1,112 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+	  xmlns:app="assembly://PlexWMC/PlexWMC"
+	  xmlns:sys="assembly://mscorlib/System"
+	  xmlns:styles="resx://PlexWMC/PlexWMC.Resources/Styles"
+	  xmlns:core="resx://PlexWMC/PlexWMC.Resources/CoreControls"
+	  xmlns:content="resx://PlexWMC/PlexWMC.Resources/ContentList"
+	  xmlns:gallery="resx://PlexWMC/PlexWMC.Resources/GalleryPage"
+	  xmlns:result="resx://PlexWMC/PlexWMC.Resources/EpisodeResult"
+    xmlns:addin="assembly://Microsoft.MediaCenter/Microsoft.MediaCenter.Hosting"
+	  xmlns:me="Me">
+
+
+	<!-- A episode page -->
+	<UI Name="EpisodePage">
+		<Properties>
+      <app:EpisodePage Name="Page" EpisodePage="$Required"/>
+			<app:Application Name="Application" Application="$Required"/>
+		</Properties>
+
+		<Locals>
+			<!-- An object to track which item in the list currently has focus. -->
+			<IntRangedValue Name="FocusedIndex"/>
+      <ShortcutHandler Name="PlayHandler" Shortcut="Play" Handle="true" HandlerStage="Bubbled"/>
+      <!-- AddInHost is where all Windows Media Center-specific services start -->
+      <!-- from. It must appear in the Locals section of a markup file.        -->
+      <addin:AddInHost Name="AddInHost"/>
+    </Locals>
+
+    <Rules>
+      <Binding Source="[Application.IsBusy]" Target="[Foreground.Visible]"/>
+
+      <Changed Source="[PlayHandler.Invoked]">
+        <Conditions>
+          <IsValid Source="[AddInHost.MediaCenterEnvironment.MediaExperience]"/>
+        </Conditions>
+        <Actions>
+          <Invoke Target="[AddInHost.MediaCenterEnvironment.MediaExperience.GoToFullScreen]"/>
+        </Actions>
+      </Changed>
+
+    </Rules>
+
+    <Content>
+      <Panel Layout="Anchor">
+
+        <Children>
+          <core:Foreground Name="Foreground" Visible="true"/>
+
+		      <Panel Name="Content" Layout="VerticalFlow" FocusOrder="0">
+			      <LayoutInput>
+				      <AnchorLayoutInput Left="Parent,0,105" Right="Parent,1,-105" Vertical="Fill"
+					      Top="Parent,0,40" Bottom="Parent,1,-40" Horizontal="Fill"/>
+			      </LayoutInput>
+			      <Children>
+
+				      <Text Font="font://styles:SectionTitle" Color="color://styles:Text.Copy" Content="[Page.Description]"/>
+
+              <me:EpisodeList Page="[Page]" Margins="25,35,0,35" FocusedIndex="[FocusedIndex]" FocusOrder="1"/>
+
+			      </Children>
+		      </Panel>
+
+		      <!-- Item counter -->
+		      <content:ItemCounter Page="[Page]" FocusedIndex="[FocusedIndex]" TextColor="color://styles:Text.Copy">
+			      <LayoutInput>
+				      <AnchorLayoutInput Top="Content,0,20" Right="Content,1"/>
+			      </LayoutInput>
+		      </content:ItemCounter>
+
+          <core:Background Name="Background" ShowTheme="[Application.ShowTheme]" Visible="true"/>
+
+        </Children>
+
+      </Panel>
+		</Content>
+	</UI>
+
+  <!-- The scrolling area of a episode page -->
+  <UI Name="EpisodeList" BaseUI="content:ContentList">
+    <Properties>
+      <app:ContentPage Name="Page" ContentPage="$Required"/>
+      <Orientation Name="ScrollOrientation" Orientation="Vertical"/>
+      <GridLayout Name="GridLayout" Orientation="Vertical" Spacing="0,6" Columns="1"/>
+    </Properties>
+
+    <Rules>
+      <Default Target="[Scroller.FadeSize]" Value="-25"/>
+    </Rules>
+
+    <Content Name="Item">
+      <me:EpisodeResult Model="[RepeatedItem!app:EpisodeResult]"
+				Index="[RepeatedItemIndex]" FocusedIndex="[FocusedIndex]"/>
+    </Content>
+  </UI>
+
+
+  <!-- A wrapper around the episode result that adds focus tracking -->
+  <UI Name="EpisodeResult" BaseUI="result:EpisodeResult">
+    <Properties>
+      <Index Name="Index" Index="$Required"/>
+      <IntRangedValue Name="FocusedIndex" IntRangedValue="$Required"/>
+    </Properties>
+
+    <Rules>
+      <!-- Inform any listeners of FocusedIndex that we have received -->
+      <!-- key focus.-->
+      <Condition Source="[Input.KeyFocus]" SourceValue="true"
+				Target="[FocusedIndex.Value]" Value="[Index.Value]"/>
+    </Rules>
+  </UI>
+
+</Mcml>

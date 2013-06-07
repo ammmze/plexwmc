@@ -1,0 +1,103 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+      xmlns:cor="assembly://MSCorLib/System"
+      xmlns:a="assembly://PlexWMC/PlexWMC"
+      xmlns:me="Me">
+
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/Base" />
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/SimpleButton" />
+
+  <UI Name="SimpleSpinner">
+
+    <Properties>
+
+      <IValueRange Name="Model" IValueRange="$Required" />
+      <Color Name="BackgroundColor" Color="Transparent" />
+      <FormatTransformer Name="LabelTransformer" Format="{0}" />
+
+    </Properties>
+
+    <Locals>
+
+      <InvokeCommand Name="Previous" Target="[Model.PreviousValue]" />
+      <InvokeCommand Name="Next" Target="[Model.NextValue]" />
+      <cor:Boolean Name="HasFocus" />
+
+    </Locals>
+
+    <Rules>
+
+      <Binding Source="[Model.Value]" Target="[Value.Content]" Transformer="[LabelTransformer]" />
+      <Binding Source="[Model.HasNextValue]" Target="[Next.Available]"/>
+      <Binding Source="[Model.HasPreviousValue]" Target="[Previous.Available]"/>
+
+      <Condition Source="[Model.HasPreviousValue]" ConditionOp="Equals" SourceValue="false">
+        <Actions>
+          <Invoke Target="[btnNext.NavigateInto]" />
+        </Actions>
+      </Condition>
+
+      <Condition Source="[Model.HasNextValue]" ConditionOp="Equals" SourceValue="false">
+        <Actions>
+          <Invoke Target="[btnPrevious.NavigateInto]" />
+        </Actions>
+      </Condition>
+
+      <Condition Source="[Input.DeepKeyFocus]" SourceValue="true" Target="[HasFocus]" Value="[Input.DeepKeyFocus]" />
+      <Condition Source="[Input.DeepMouseFocus]" SourceValue="true" Target="[HasFocus]" Value="[Input.DeepMouseFocus]" />
+      <Condition Source="[HasFocus]" SourceValue="true" Target="[Background.Content]" Value="image://me:SpinnerBluebarLargeFocus" />
+
+    </Rules>
+
+    <Content>
+      <Panel>
+        <Layout>
+          <FlowLayout Orientation="Horizontal" />
+        </Layout>
+        <Children>
+
+          <!-- Current value -->
+          <Graphic Name="Background" Content="image://me:SpinnerBluebarLargeNoFocus" MinimumSize="425,51" MaximumSize="425,51" Padding="5,10,0,5">
+            <Children>
+              <Text Name="Value" Font="font://me:Font" Color="White" />
+            </Children>
+          </Graphic>
+
+          <!-- Previous button -->
+          <me:SimpleButton  Command="[Previous]"
+                            ImageFocus="image://me:SpinnerArrowBackFocus"
+                            ImageNoFocus="image://me:SpinnerArrowBackNoFocus"
+                            ImageDormant="image://me:SpinnerArrowBackDormant"
+                            Name="btnPrevious"
+                            Size="50,51"
+                            />
+
+          <!-- Next button -->
+          <me:SimpleButton  Command="[Next]"
+                            ImageFocus="image://me:SpinnerArrowForwardFocus"
+                            ImageNoFocus="image://me:SpinnerArrowForwardNoFocus"
+                            ImageDormant="image://me:SpinnerArrowForwardDormant"
+                            Name="btnNext"
+                            Size="50,51"
+                            />
+
+        </Children>
+      </Panel>
+    </Content>
+  </UI>
+
+  <Font Name="Font"                               FontName="global://me:RegularFontName" FontSize="20" />
+  <Image Name="SpinnerArrowBackDisabled"          Source="resx://PlexWMC/PlexWMC.Resources/SpinnerArrowBackDisabled"/>
+  <Image Name="SpinnerArrowBackDormant"           Source="resx://PlexWMC/PlexWMC.Resources/SpinnerArrowBackDormant"/>
+  <Image Name="SpinnerArrowBackFocus"             Source="resx://PlexWMC/PlexWMC.Resources/SpinnerArrowBackFocus"/>
+  <Image Name="SpinnerArrowBackFocusoverlay"      Source="resx://PlexWMC/PlexWMC.Resources/SpinnerArrowBackFocusoverlay"/>
+  <Image Name="SpinnerArrowBackNoFocus"           Source="resx://PlexWMC/PlexWMC.Resources/SpinnerArrowBackNoFocus"/>
+  <Image Name="SpinnerArrowForwardDisabled"       Source="resx://PlexWMC/PlexWMC.Resources/SpinnerArrowForwardDisabled"/>
+  <Image Name="SpinnerArrowForwardDormant"        Source="resx://PlexWMC/PlexWMC.Resources/SpinnerArrowForwardDormant"/>
+  <Image Name="SpinnerArrowForwardFocus"          Source="resx://PlexWMC/PlexWMC.Resources/SpinnerArrowForwardFocus"/>
+  <Image Name="SpinnerArrowForwardFocusOverlay"   Source="resx://PlexWMC/PlexWMC.Resources/SpinnerArrowForwardFocusOverlay"/>
+  <Image Name="SpinnerArrowForwardNoFocus"        Source="resx://PlexWMC/PlexWMC.Resources/SpinnerArrowForwardNoFocus"/>
+  <Image Name="SpinnerBluebarLargeDormant"        Source="resx://PlexWMC/PlexWMC.Resources/SpinnerBluebarLargeDormant"/>
+  <Image Name="SpinnerBluebarLargeFocus"          Source="resx://PlexWMC/PlexWMC.Resources/SpinnerBluebarLargeFocus"/>
+  <Image Name="SpinnerBluebarLargeNoFocus"        Source="resx://PlexWMC/PlexWMC.Resources/SpinnerBluebarLargeNoFocus"/>
+
+</Mcml>

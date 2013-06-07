@@ -1,0 +1,66 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+    xmlns:sys="assembly://mscorlib/System"
+	  xmlns:app="assembly://PlexWMC/PlexWMC"
+    xmlns:me="Me">
+
+  <Image Name="FGBusyBack" Source="resx://PlexWMC/PlexWMC.Resources/BusyBack"  />
+  <Image Name="FGBusyFront" Source="resx://PlexWMC/PlexWMC.Resources/BusyFront"  />
+
+  <UI Name="Foreground">
+    <Properties>
+      <sys:Boolean Name="ShowTheme" Boolean="true" />
+      <Color Name="FillColor" Color="Transparent"/>
+      <sys:String Name="Title" String="Loading" />
+    </Properties>
+    <Rules>
+      <Binding Source="[FillColor]" Target="[fgc.Content]"/>
+      <Binding Source="[ShowTheme]" Target="[fgc.Visible]"/>
+    </Rules>
+
+    <Content>
+
+      <Panel Layout="Anchor">
+        <LayoutInput>
+          <AnchorLayoutInput Left="Parent,0" Top="Parent,0" Right="Parent,1" Bottom="Parent,1"/>
+        </LayoutInput>
+        <Children>
+          <!-- Main Holder for Image - uses a ColorFill Panel -->
+          <ColorFill Name="fgc" Content="[FillColor]" Visible="[ShowTheme]">
+            <Children>
+              <Panel>
+                <LayoutInput>
+                  <FormLayoutInput Horizontal="Center" Vertical="Center" />
+                </LayoutInput>
+                <Children>
+
+                  <!-- Front Overlay Image -->
+                  <Graphic Content="image://me:FGBusyFront" SizingPolicy="SizeToContent" >
+                    <Animations>
+                      <Animation Loop="-1" CenterPointPercent="0.5,0.5,0.0">
+                        <Keyframes>
+
+                          <!-- Spin! -->
+                          <RotateKeyframe Time="0.0" Value="-360deg;0,0,1"/>
+                          <RotateKeyframe Time="1.0" Value="0deg;0,0,1"/>
+
+                        </Keyframes>
+                      </Animation>
+                    </Animations>
+                  </Graphic>
+
+                  <!-- Back Overlay Image -->
+                  <Graphic Content="image://me:FGBusyBack" SizingPolicy="SizeToContent" />
+
+                </Children>
+              </Panel>
+
+            </Children>
+          </ColorFill>
+
+        </Children>
+      </Panel>
+
+    </Content>
+  </UI>
+
+</Mcml>

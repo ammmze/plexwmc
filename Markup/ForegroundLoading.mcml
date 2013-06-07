@@ -1,0 +1,50 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+    xmlns:sys="assembly://mscorlib/System"
+	  xmlns:app="assembly://PlexWMC/PlexWMC"
+    xmlns:me="Me">
+
+  <UI Name="ForegroundLoading">
+    <Properties>
+      <sys:Boolean Name="ShowTheme" Boolean="true" />
+      <sys:String Name="Title" String="" />
+    </Properties>
+    <Rules>
+      <Binding Source="[ShowTheme]" Target="[fgl.Visible]"/>
+    </Rules>
+
+    <Content>
+
+      <!-- Main Holder for Image - uses a ColorFill Panel -->
+
+      <ColorFill Name="fgl" Content="Transparent" Visible="[ShowTheme]">
+        <Children>
+
+          <Panel>
+            <LayoutInput>
+              <FormLayoutInput Horizontal="Center" Vertical="Center" />
+            </LayoutInput>
+            <Children>
+
+              <!-- Optional text to be displayed -->
+              <Text Content="[Title]" Color="224,192,128,128" Font="Tahoma,80,Bold">
+                <Animations>
+                  <Animation Loop="-1">
+                    <Keyframes>
+                      <ColorKeyframe Time="0.0" Value="1.0,1.0,1.0" />
+                      <ColorKeyframe Time="1.0" Value="0.0,0.0,0.0" />
+                      <ColorKeyframe Time="2.0" Value="1.0,1.0,1.0" />
+                    </Keyframes>
+                  </Animation>
+                </Animations>
+              </Text>
+
+            </Children>
+          </Panel>
+
+        </Children>
+      </ColorFill>
+
+    </Content>
+  </UI>
+
+</Mcml>

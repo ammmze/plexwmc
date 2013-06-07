@@ -1,0 +1,11 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+      xmlns:a="assembly://PlexWMC/PlexWMC"
+      >
+
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/Animations" />
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/Images" />
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/Colors" />
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/Sounds" />
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/FontNames" />
+
+</Mcml>

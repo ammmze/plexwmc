@@ -1,0 +1,101 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+    xmlns:sys="assembly://mscorlib/System"
+    xmlns:me="Me">
+
+  <Image Name="BGImage" Source="resx://PlexWMC/PlexWMC.Resources/bgwave"  />
+  <Image Name="BGImage2" Source="resx://PlexWMC/PlexWMC.Resources/bgsatin"  />
+
+  <!--
+
+  On your Host MCML Page/UI Element - reference the 'PageBackground' UI
+  element (and place it at the bottom/last in the parent panel to ensure
+  it is shown 'underneath' everything else).
+
+  ie
+
+	<UI>
+	  ...
+	<Content>
+		<Panel Layout="Fill" ..>
+			<Children>
+				... Other Main Page Content (ie. Panels etc)  ...
+				<me:PageBackground FillColor="Blue"/>
+			<Children>
+		</Panel>
+	</Content>
+
+	</UI>
+
+  Set the 'FillColor' Property to change the Main Color Theme. If the user
+  just wants to see the standard Vista Blue background - you can also turn
+  the theme/background off via the 'ShowTheme' property.
+
+-->
+  <UI Name="Background">
+    <Properties>
+      <sys:Boolean Name="ShowTheme" Boolean="true" />
+      <sys:String Name="DisplayVersion" String="" />
+      <!-- <Color Name="FillColor" Color="185,9,11"/> -->
+      <Color Name="FillColor" Color="Transparent"/>
+      <Vector3 Name="MedScale" Vector3="1.8,1.8,1.8"/>
+      <Vector3 Name="BigScale" Vector3="3.0,3.0,3.0" />
+    </Properties>
+    <Rules>
+      <Binding Source="[FillColor]" Target="[bgc.Content]"/>
+      <Binding Source="[ShowTheme]" Target="[bgc.Visible]"/>
+    </Rules>
+
+    <Content>
+      <!-- Main Holder for Image - uses a ColorFill Panel -->
+
+      <ColorFill Name="bgc" Content="[FillColor]" Layout="Fill" Margins="0,0,0,0" Scale="1.5,1.5,1.5" Visible="[ShowTheme]">
+        <Children>
+
+          <!-- Overlay Image #2. -->
+
+          <Graphic Content="image://me:BGImage2" HorizontalAlignment="Fill" VerticalAlignment="Fill" SizingPolicy="SizeToConstraint"  Margins="0,0,0,0" CenterPointPercent="0.5,0.5,0.5"  >
+            <Animations>
+              <Animation Type="Idle" CenterPointPercent="0.5,0.5,0.5" Loop="-1">
+                <Keyframes>
+                  <RotateKeyframe RelativeTo="Absolute" Time="0" Value="0deg;0,0,1"/>
+                  <AlphaKeyframe RelativeTo="Absolute" Time="0" Interpolation="Sine" Value="0.3"/>
+                  <ScaleKeyframe Time="0" RelativeTo="Absolute" Value="[BigScale]" Interpolation="Sine"/>
+                  <ScaleKeyframe Time="15" RelativeTo="Absolute" Value="[MedScale]" Interpolation="Sine"/>
+                  <ScaleKeyframe Time="30" RelativeTo="Absolute" Value="[BigScale]" Interpolation="Sine"/>
+                  <AlphaKeyframe RelativeTo="Absolute" Time="20" Interpolation="Sine" Value="0.6"/>
+                  <ScaleKeyframe Time="45" RelativeTo="Absolute" Value="[MedScale]" Interpolation="Sine"/>
+                  <ScaleKeyframe Time="60" RelativeTo="Absolute" Value="[BigScale]" Interpolation="Sine"/>
+                  <AlphaKeyframe RelativeTo="Absolute" Time="60" Interpolation="Sine" Value="0.3"/>
+                  <RotateKeyframe RelativeTo="Absolute" Time="60" Value="360deg;0,0,1"/>
+                </Keyframes>
+              </Animation>
+            </Animations>
+          </Graphic>
+
+          <!-- Overlay Image #1. -->
+
+          <Graphic Content="image://me:BGImage" HorizontalAlignment="Fill" VerticalAlignment="Fill" SizingPolicy="SizeToConstraint"  Margins="0,0,0,0" CenterPointPercent="0.5,0.5,0.5" >
+            <Animations>
+              <Animation Type="Idle" CenterPointPercent="0.5,0.5,0.5" Loop="-1">
+                <Keyframes>
+                  <RotateKeyframe RelativeTo="Absolute" Time="0" Value="360deg;0,0,1" />
+                  <AlphaKeyframe RelativeTo="Absolute" Time="0" Interpolation="Sine" Value="0.4"/>
+                  <ScaleKeyframe Time="0" RelativeTo="Absolute" Value="[MedScale]" Interpolation="Sine"/>
+                  <ScaleKeyframe Time="15" RelativeTo="Absolute" Value="[BigScale]" Interpolation="Sine"/>
+                  <ScaleKeyframe Time="30" RelativeTo="Absolute" Value="[MedScale]" Interpolation="Sine"/>
+                  <AlphaKeyframe RelativeTo="Absolute" Time="20" Interpolation="Sine" Value="0.7"/>
+                  <ScaleKeyframe Time="45" RelativeTo="Absolute" Value="[BigScale]" Interpolation="Sine"/>
+                  <ScaleKeyframe Time="60" RelativeTo="Absolute" Value="[MedScale]" Interpolation="Sine"/>
+                  <AlphaKeyframe RelativeTo="Absolute" Time="60" Interpolation="Sine" Value="0.4"/>
+                  <RotateKeyframe RelativeTo="Absolute" Time="60" Value="0deg;0,0,1"/>
+                </Keyframes>
+              </Animation>
+            </Animations>
+          </Graphic>
+        </Children>
+
+      </ColorFill>
+    </Content>
+  </UI>
+
+</Mcml>

@@ -1,0 +1,104 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+	    xmlns:cor="assembly://MSCorLib/System"
+      xmlns:me="Me"
+      >
+
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/Base" />
+
+  <UI Name="PivotItem">
+
+    <Properties>
+
+      <cor:String Name="Label" cor:String="$Required"/>
+      <Choice Name="Model" Choice="$Required"/>
+      <Index Name="Index" Index="$Required"/>
+      <Font Name="TextFont" Font="font://me:Font"/>
+      <Font Name="FocusedFont" Font="font://me:FocusFont"/>
+
+      <Inset Name="TextMargin" Inset="10,0,10,0"/>
+    </Properties>
+
+    <Rules>
+
+      <Default Target="[Input.KeyInteractive]" Value="true"/>
+      <Default Target="[Input.KeyFocusOnMouseEnter]" Value="false"/>
+
+      <Rule ConditionLogicalOp="Or">
+        <Conditions>
+          <Equality Source="[Input.MouseFocus]" Value="true"/>
+          <Equality Source="[Input.KeyFocus]" Value="true"/>
+        </Conditions>
+        <Actions>
+          <Set Target="[Name.Color]" Value="White"/>
+          <Set Target="[PivotLeftBracket.Color]" Value="White"/>
+          <Set Target="[PivotRightBracket.Color]" Value="White"/>
+        </Actions>
+      </Rule>
+
+      <Condition Source="[Input.KeyFocus]" SourceValue="true">
+        <Actions>
+          <Set Target="[Model.ChosenIndex]" Value="[Index.Value]"/>
+        </Actions>
+      </Condition>
+
+      <Condition Source="[Model.ChosenIndex]" SourceValue="[Index.Value]">
+        <Actions>
+          <Set Target="[Name.Font]" Value="[FocusedFont]" />
+          <Set Target="[PivotLeftBracket.Font]" Value="[FocusedFont]" />
+          <Set Target="[PivotRightBracket.Font]" Value="[FocusedFont]" />
+          <Set Target="[PivotLeftBracket.Visible]" Value="true" />
+          <Set Target="[PivotRightBracket.Visible]" Value="true" />
+          <Set Target="[Name.Color]" Value="color://me:MediumBlue"/>
+          <Set Target="[Name.Margins]" Value="0,0,0,0"/>
+          <Set Target="[PivotLeftBracket.Color]" Value="color://me:MediumBlue"/>
+          <Set Target="[PivotRightBracket.Color]" Value="color://me:MediumBlue"/>
+          <Set Target="[PivotPanel.Scale]" Value="1.1,1.1,1.1" />
+          <Set Target="[PivotPanel.Alpha]" Value="1" />
+        </Actions>
+      </Condition>
+
+      <Condition Source="[Model.ChosenIndex]" ConditionOp="NotEquals" SourceValue="[Index.Value]">
+        <Actions>
+          <Set Target="[PivotLeftBracket.Visible]" Value="false" />
+          <Set Target="[PivotRightBracket.Visible]" Value="false" />
+          <Set Target="[PivotPanel.Scale]" Value="1,1,1" />
+          <Set Target="[PivotPanel.Alpha]" Value="0.75" />
+          <Set Target="[Name.Margins]" Value="[TextMargin]"/>
+        </Actions>
+      </Condition>
+
+    </Rules>
+
+    <Content>
+
+      <Panel Layout="HorizontalFlow" Name="PivotPanel" Alpha="0.75" CenterPointPercent="0.5,0.5,0.5">
+
+        <Animations>
+          <Animation Animation="animation://me:RegularFastScale" />
+          <Animation Animation="animation://me:RegularFastFade" />
+        </Animations>
+
+        <Children>
+
+          <!--<Graphic Name="ArrowLeft" Content="image://me:PivotArrowLeftNoFocus" Margins="0,15,6,0" />-->
+          <Text Name="PivotLeftBracket" Font="[TextFont]" Color="color://me:MediumBlue" Content="&lt;" Margins="10,0,0,0" />
+          <Text Name="Name" Font="[TextFont]" Color="color://me:MediumBlue" Content="[Label]" />
+          <Text Name="PivotRightBracket" Font="[TextFont]" Color="color://me:MediumBlue" Content="&gt;" Margins="0,0,10,0" />
+          <!--<Graphic Name="ArrowRight" Content="image://me:PivotArrowRightNoFocus" Margins="6,15,0,0" />-->
+
+        </Children>
+
+      </Panel>
+
+    </Content>
+
+  </UI>
+
+  <Font Name="Font"                     FontName="Segoe UI" FontSize="20" />
+  <Font Name="FocusFont"                FontName="Segoe UI" FontSize="22" />
+  <Image Name="PivotArrowLeft"          Source="resx://PlexWMC/PlexWMC.Resources/PivotArrowLeft"/>
+  <Image Name="PivotArrowLeftNoFocus"   Source="resx://PlexWMC/PlexWMC.Resources/PivotArrowLeftNoFocus"/>
+  <Image Name="PivotArrowRight"         Source="resx://PlexWMC/PlexWMC.Resources/PivotArrowRight"/>
+  <Image Name="PivotArrowRightNoFocus"  Source="resx://PlexWMC/PlexWMC.Resources/PivotArrowRightNoFocus"/>
+
+</Mcml>
