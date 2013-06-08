@@ -1,0 +1,110 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+      xmlns:cor="assembly://MSCorLib/System"
+      xmlns:app="assembly://PlexWMC/PlexWMC"
+      xmlns:styles="resx://PlexWMC/PlexWMC.Resources/Styles"
+      xmlns:eb="resx://PlexWMC/PlexWMC.Resources/Editbox"
+      xmlns:c="resx://PlexWMC/PlexWMC.Resources/CoreControls"
+      xmlns:me="Me">
+
+  <UI Name="Login">
+
+    <Properties>
+      <app:Application Name="Application" Application="$Required"/>
+      <Color Name="LabelColor" Color="color://styles:Text.Copy"/>
+      <Font Name="LabelFont" Font="font://styles:TitleText"/>
+      <!--<app:SettingsCommand Name="SettingsCommand" SettingsCommand="$Required"/>-->
+    </Properties>
+
+    <Locals>
+
+      <Command Name="Save" Description="Login" />
+      <Command Name="Cancel" Description="Cancel" />
+
+      <cor:String Name="UsernameLabel"
+                  String="myPlex Username/Email"/>
+      <cor:String Name="PasswordLabel"
+                  String="myPlex Password"/>
+      <EditableText Name="Username"
+                    Value="[Application.username]"/>
+      <EditableText Name="Password"
+                    Value=""/>
+
+    </Locals>
+
+    <Rules>
+      <Default Target="[UsernameLabelText.Content]"
+                Value="[UsernameLabel]"/>
+      <Default Target="[PasswordLabelText.Content]"
+                Value="[PasswordLabel]"/>
+
+      <Changed Source="[Save.Invoked]">
+        <Actions>
+          <Invoke Target="[Application.LoginToMyPlex]" username="[Username]" password="[Password]"/>
+        </Actions>
+      </Changed>
+
+      <Changed Source="[Cancel.Invoked]">
+        <Actions>
+          <Invoke Target="[Application.GoBack]"/>
+        </Actions>
+      </Changed>
+
+    </Rules>
+
+    <Content>
+      <Panel>
+
+        <Children>
+
+          <Panel>
+            <Layout>
+              <FlowLayout Orientation="Horizontal" />
+            </Layout>
+            <Children>
+
+              <!-- Begin Left Menu -->
+              <Panel Margins="40,0,40,0">
+                <Layout>
+                  <FlowLayout Orientation="Vertical"
+                              StripAlignment="Center"
+                              Spacing="5,5"/>
+                </Layout>
+                <Children>
+                  <c:SimpleButton Command="[Save]" Text="Login" />
+                  <c:SimpleButton Command="[Cancel]" Text="Cancel" />
+                </Children>
+              </Panel>
+              <!-- End Left Menu -->
+
+              <!-- Begin Content -->
+              <Panel>
+                <Layout>
+                  <FlowLayout Orientation="Vertical"
+                              StripAlignment="Center"
+                              Spacing="5,5"/>
+                </Layout>
+                <Children>
+                  <Text Name="UsernameLabelText"
+                       Color="[LabelColor]"
+                        Font="[LabelFont]"/>
+                  <eb:Editbox EditableText="[Username]" />
+                  <Text Name="PasswordLabelText"
+                       Color="[LabelColor]"
+                        Font="[LabelFont]"/>
+                  <eb:Editbox EditableText="[Password]" PasswordMasked="true" />
+                </Children>
+              </Panel>
+              <!-- End Content -->
+
+            </Children>
+          </Panel>
+
+          <!--<c:Background Name="Background" FillColor="40,40,40" Visible="true"/>-->
+
+        </Children>
+      </Panel>
+    </Content>
+
+  </UI>
+
+</Mcml>

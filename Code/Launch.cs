@@ -3,7 +3,7 @@ using Microsoft.MediaCenter.Hosting;
 
 namespace PlexWMC
 {
-    public class MyAddIn : IAddInModule, IAddInEntryPoint
+    public class Settings : IAddInModule, IAddInEntryPoint
     {
         private static HistoryOrientedPageSession s_session;
 
@@ -23,7 +23,7 @@ namespace PlexWMC
             }
             s_session = new HistoryOrientedPageSession();
             Application app = new Application(s_session, host);
-            app.GoToMenu();
+            app.GoToSettings();
         }
     }
 }

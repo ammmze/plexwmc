@@ -16,7 +16,7 @@
   <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/SimpleEditbox" />
   <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/SimpleRadioButtonGroup" />
   <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/SimpleSpinner" />
-  <!--<Aggregate Source="resx://PlexWMC/PlexWMC.Resources/ThumbnailButton"/>-->
+  <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/ThumbnailButton"/>
   <!--<Aggregate Source="resx://PlexWMC/PlexWMC.Resources/TreeViewHost" />-->
   <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/Pivot" />
   <Aggregate Source="resx://PlexWMC/PlexWMC.Resources/StaticPivot" />

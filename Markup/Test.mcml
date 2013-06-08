@@ -1,0 +1,237 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+      xmlns:cor="assembly://MSCorLib/System"
+      xmlns:app="assembly://PlexWMC/PlexWMC"
+      xmlns:api="assembly://PlexAPI,Version=1.0.0.0,Culture=Neutral,PublicKeyToken=3b6cd3108f20d6a1/PlexAPI"
+      xmlns:styles="resx://PlexWMC/PlexWMC.Resources/Styles"
+      xmlns:eb="resx://PlexWMC/PlexWMC.Resources/Editbox"
+      xmlns:c="resx://PlexWMC/PlexWMC.Resources/CoreControls"
+      xmlns:me="Me">
+
+  <UI Name="Sections">
+
+    <Properties>
+      <app:Application Name="Application" Application="$Required"/>
+      <Color Name="LabelColor" Color="color://styles:Text.Copy"/>
+      <Font Name="LabelFont" Font="font://styles:TitleText"/>
+      <Size Name="TestSize"
+            Size="0,145"/>
+      <Inset Name="TestSpacing"
+             Inset="0,2,0,10"/>
+
+      <Size Name="GridSpacing"
+            Size="10,10"/>
+    </Properties>
+
+    <Content>
+      <Panel>
+
+        <Children>
+
+          <Panel>
+            <Layout>
+              <FlowLayout Orientation="Horizontal" />
+            </Layout>
+            <Children>
+
+              <!-- Begin Content -->
+              <Panel>
+                <Layout>
+                  <FlowLayout Orientation="Vertical"
+                              StripAlignment="Center"
+                              Spacing="5,5"/>
+                </Layout>
+                <Children>
+                  <me:DirectoryGrid Size="[TestSize]"
+                           Padding="[TestSpacing]">
+                    <GridLayout>
+                      <GridLayout Orientation="Horizontal"
+                          AllowWrap="true"
+                          Spacing="[GridSpacing]"
+                          MajorAlignment="Fill"
+                          MinorAlignment="Fill"/>
+                    </GridLayout>
+                  </me:DirectoryGrid>
+
+                </Children>
+              </Panel>
+              <!-- End Content -->
+
+            </Children>
+          </Panel>
+
+          <!--<c:Background Name="Background" FillColor="40,40,40" Visible="true"/>-->
+
+        </Children>
+      </Panel>
+    </Content>
+
+  </UI>
+
+  <UI Name="DirectoryGrid">
+
+    <Properties>
+
+      <!-- The layout we will use to display the alphabet. -->
+      <GridLayout Name="GridLayout"
+                  GridLayout="$Required"/>
+
+      <!-- The size to constrain this layout to. -->
+      <Size Name="Size"/>
+
+    </Properties>
+
+    <Locals>
+
+      <!-- Our data source for the grid will be the alphabet. -->
+      <ArrayListDataSet Name="Directories">
+        <Source>
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <app:ThumbnailCommand Title="Directory 1" Image="http://cashmedia.me:8088/library/metadata/3790/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 2" Image="http://cashmedia.me:8088/library/metadata/3816/thumb/1368592766" />
+          <app:ThumbnailCommand Title="Directory 3" Image="http://cashmedia.me:8088/library/metadata/3701/thumb/1368592763" />
+          <app:ThumbnailCommand Title="Directory 4" Image="http://cashmedia.me:8088/library/metadata/3863/thumb/1368592776" />
+          <app:ThumbnailCommand Title="Directory 5" Image="http://cashmedia.me:8088/library/metadata/3861/thumb/1368592781" />
+          <!--<api:Directory title="Up" />
+          <api:Directory title="Directory 1" />
+          <api:Directory title="Directory 2" />
+          <api:Directory title="Directory 3" />
+          <api:Directory title="Directory 4" />
+          <api:Directory title="Directory 5" />-->
+        </Source>
+      </ArrayListDataSet>
+
+    </Locals>
+
+    <Content>
+
+      <!-- Draw an outline that will represent the constraint. -->
+      <Panel
+               Layout="Center">
+        <Children>
+
+          <!-- This color will show the total used size of the grid. -->
+
+          <Scroller Orientation="Vertical"
+                    FadeSize="-5"
+                    Margins="40,40,40,40">
+            <Children>
+              
+              <!-- Repeat out each letter of the alphabet. -->
+              <Repeater Source="[Directories]"
+                        Layout="[GridLayout]">
+                <Content>
+
+                  <!-- Each letter is displayed with this background -->
+                  <Panel Padding="5,5,5,5">
+                    <Children>
+
+                      <!-- Here's the letter -->
+                      <c:ThumbnailButton Model="[RepeatedItem!app:ThumbnailCommand]"
+                                         ShowLabel="false" />
+
+                    </Children>
+                  </Panel>
+
+                </Content>
+              </Repeater>
+
+            </Children>
+          </Scroller>
+
+        </Children>
+      </Panel>
+
+    </Content>
+
+  </UI>
+
+  <Image Name="Outline"
+         Source="file://LayoutGraphicOutlineRounded.png"
+         NineGrid="6,6,6,6"/>
+
+  <!-- The background image that will be displayed behind each grid cell. -->
+  <Image Name="LayoutItemImage"
+         Source="file://LayoutGraphic.png"
+         NineGrid="4,4,4,4"/>
+
+
+</Mcml>

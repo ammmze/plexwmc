@@ -175,12 +175,6 @@
   <data name="KeyboardContents" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>markup\keyboardcontents.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Page_Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>markup\page.login.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Page_Test" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>markup\page.test.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="Pivot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>markup\pivot.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -211,7 +205,265 @@
   <data name="Styles" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>markup\styles.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Application" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\application.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Background1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\background.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BackgroundItem1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\backgrounditem1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BackgroundItem2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\backgrounditem2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bgsatin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\bgsatin.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bgwave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\bgwave.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BusyBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\busyback.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BusyFront" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\busyfront.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttondisabled.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonDormant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttondormant.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttonfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonLeftFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttonleftfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonLeftFocusOverlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttonleftfocusoverlay.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonNoFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttonnofocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonNonFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttonnonfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonNonFocusFade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttonnonfocusfade.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonPressedAfterGlow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttonpressedafterglow.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonPressedHighlight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttonpressedhighlight.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonRadioButtonBullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttonradiobuttonbullet.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonRadioButtonBulletFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttonradiobuttonbulletfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonRadioButtonBulletNoFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttonradiobuttonbulletnofocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonRadioButtonOutlineFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttonradiobuttonoutlinefocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonRadioButtonOutlineNoFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttonradiobuttonoutlinenofocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonRightFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttonrightfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonRightFocusOverlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\buttonrightfocusoverlay.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CheckBoxChecked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\checkboxchecked.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CheckBoxFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\checkboxfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CheckBoxNonFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\checkboxnonfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Container" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\container.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Container1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\container1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Container2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\container2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditBoxFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\editboxfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditBoxNonFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\editboxnonfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FindEditbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\findeditbox.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FindEditboxNoFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\findeditboxnofocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FirstRunCheckBoxCheckedDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\firstruncheckboxcheckeddisabled.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FirstRunCheckBoxCheckedFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\firstruncheckboxcheckedfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FirstRunCheckBoxCheckedNoFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\firstruncheckboxcheckednofocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FirstRunCheckBoxCheckedPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\firstruncheckboxcheckedpressed.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FirstRunCheckBoxUncheckedDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\firstruncheckboxuncheckeddisabled.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FirstRunCheckBoxUncheckedFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\firstruncheckboxuncheckedfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FirstRunCheckBoxUncheckedNoFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\firstruncheckboxuncheckednofocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FirstRunCheckBoxUncheckedPressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\firstruncheckboxuncheckedpressed.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GalleryFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\galleryfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gradient_Bottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\gradient.bottom.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gradient_Top" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\gradient.top.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ListboxNoFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\listboxnofocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MouseNavDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\mousenavdown.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MouseNavDownFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\mousenavdownfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MouseNavLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\mousenavleft.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MouseNavLeftFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\mousenavleftfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MouseNavRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\mousenavright.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MouseNavRightFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\mousenavrightfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MouseNavUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\mousenavup.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MouseNavUpFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\mousenavupfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MusicDirectory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\musicdirectory.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MusicFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\musicfile.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverlaysButtonNoFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\overlaysbuttonnofocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PivotArrowLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\pivotarrowleft.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PivotArrowLeftNoFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\pivotarrowleftnofocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PivotArrowRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\pivotarrowright.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PivotArrowRightNoFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\pivotarrowrightnofocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ProgressBarFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\progressbarfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ProgressBarNonFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\progressbarnonfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SimpleEditbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>markup\simpleeditbox.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SpinnerArrowBackDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\spinnerarrowbackdisabled.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpinnerArrowBackDormant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\spinnerarrowbackdormant.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpinnerArrowBackFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\spinnerarrowbackfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpinnerArrowBackFocusoverlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\spinnerarrowbackfocusoverlay.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpinnerArrowBackNoFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\spinnerarrowbacknofocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpinnerArrowForwardDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\spinnerarrowforwarddisabled.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpinnerArrowForwardDormant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\spinnerarrowforwarddormant.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpinnerArrowForwardFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\spinnerarrowforwardfocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpinnerArrowForwardFocusoverlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\spinnerarrowforwardfocusoverlay.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpinnerArrowForwardNoFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\spinnerarrowforwardnofocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpinnerBluebarLargeDormant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\spinnerbluebarlargedormant.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpinnerBluebarLargeFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\spinnerbluebarlargefocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpinnerBluebarLargeNoFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\spinnerbluebarlargenofocus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>markup\pages\login.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>markup\menu.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>markup\pages\settings.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Test" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>markup\test.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Browse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>markup\pages\browse.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PlexApi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>markup\plexapi.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SectionsSettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>markup\pages\sectionssettings.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Shell_NoImage" xml:space="preserve">
+    <value>No image available</value>
+  </data>
+  <data name="ThumbnailButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>markup\thumbnailbutton.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

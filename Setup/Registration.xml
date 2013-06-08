@@ -1,9 +1,41 @@
-﻿<application title="PlexWMC" id="{73EE1F57-DB00-4648-8DC2-58C89FE4C560}">
+﻿<application 
+  title="PlexWMC" 
+  id="{73EE1F57-DB00-4648-8DC2-58C89FE4C560}"
+  StartMenuStripTitle="Plex"
+  StartMenuStripCategory="Custom Start Menu\Plex">
 	<entrypoint id="{2207BD5A-ECF6-47D7-9433-CD00DF0CC463}"
-				addin="PlexWMC.MyAddIn, PlexWMC,Culture=Neutral,Version=1.0.0.0,PublicKeyToken=4ae5afde023f77cc"
-				title="PlexWMC"
-				description="PlexWMC Description"
-				ImageUrl=".\Application.png">
+				      addin="PlexWMC.Settings, PlexWMC,Culture=Neutral,Version=1.0.0.0,PublicKeyToken=4ae5afde023f77cc"
+				      title="PlexWMC"
+				      description="PlexWMC Settings"
+				      ImageUrl=".\Application.png">
 		<category category="More Programs"/>
 	</entrypoint>
+
+  <entrypoint id="{086E3CF9-C307-47E4-9485-F059CDDB05FB}"
+              addin="PlexWMC.Settings, PlexWMC,Culture=Neutral,Version=1.0.0.0,PublicKeyToken=4ae5afde023f77cc"
+              title="Search"
+              description="Search Plex Libraries"
+              imageURL=".\Application.png"
+              UiFlags="HideTransportToolbar">
+    <category category="Custom Start Menu\Plex" order="0"/>
+  </entrypoint>
+
+  <entrypoint id="{AFA82FC2-CBCA-4B78-99DA-E4819EB227BA}"
+              addin="PlexWMC.Settings, PlexWMC,Culture=Neutral,Version=1.0.0.0,PublicKeyToken=4ae5afde023f77cc"
+              title="Browse"
+              description="Browse Plex Libraries"
+              imageURL=".\Application.png"
+              UiFlags="HideTransportToolbar">
+    <category category="Custom Start Menu\Plex" order="0"/>
+  </entrypoint>
+
+  <entrypoint id="{7A952F65-6641-401D-826F-5C2F300D9FFC}"
+              addin="PlexWMC.Settings, PlexWMC,Culture=Neutral,Version=1.0.0.0,PublicKeyToken=4ae5afde023f77cc"
+              title="Settings"
+              description="Plex Settings"
+              imageURL=".\Application.png"
+              UiFlags="HideTransportToolbar">
+    <category category="Custom Start Menu\Plex" order="0"/>
+  </entrypoint>
+  
 </application>

@@ -71,12 +71,52 @@ namespace PlexWMC {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Application {
+            get {
+                object obj = ResourceManager.GetObject("Application", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] Background {
             get {
                 object obj = ResourceManager.GetObject("Background", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Background1 {
+            get {
+                object obj = ResourceManager.GetObject("Background1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BackgroundItem1 {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundItem1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BackgroundItem2 {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundItem2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -91,12 +131,232 @@ namespace PlexWMC {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bgsatin {
+            get {
+                object obj = ResourceManager.GetObject("bgsatin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bgwave {
+            get {
+                object obj = ResourceManager.GetObject("bgwave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Browse {
+            get {
+                object obj = ResourceManager.GetObject("Browse", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BusyBack {
+            get {
+                object obj = ResourceManager.GetObject("BusyBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BusyFront {
+            get {
+                object obj = ResourceManager.GetObject("BusyFront", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] Button {
             get {
                 object obj = ResourceManager.GetObject("Button", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonDisabled {
+            get {
+                object obj = ResourceManager.GetObject("ButtonDisabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonDormant {
+            get {
+                object obj = ResourceManager.GetObject("ButtonDormant", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonFocus {
+            get {
+                object obj = ResourceManager.GetObject("ButtonFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonLeftFocus {
+            get {
+                object obj = ResourceManager.GetObject("ButtonLeftFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonLeftFocusOverlay {
+            get {
+                object obj = ResourceManager.GetObject("ButtonLeftFocusOverlay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonNoFocus {
+            get {
+                object obj = ResourceManager.GetObject("ButtonNoFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonNonFocus {
+            get {
+                object obj = ResourceManager.GetObject("ButtonNonFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonNonFocusFade {
+            get {
+                object obj = ResourceManager.GetObject("ButtonNonFocusFade", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonPressedAfterGlow {
+            get {
+                object obj = ResourceManager.GetObject("ButtonPressedAfterGlow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonPressedHighlight {
+            get {
+                object obj = ResourceManager.GetObject("ButtonPressedHighlight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonRadioButtonBullet {
+            get {
+                object obj = ResourceManager.GetObject("ButtonRadioButtonBullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonRadioButtonBulletFocus {
+            get {
+                object obj = ResourceManager.GetObject("ButtonRadioButtonBulletFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonRadioButtonBulletNoFocus {
+            get {
+                object obj = ResourceManager.GetObject("ButtonRadioButtonBulletNoFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonRadioButtonOutlineFocus {
+            get {
+                object obj = ResourceManager.GetObject("ButtonRadioButtonOutlineFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonRadioButtonOutlineNoFocus {
+            get {
+                object obj = ResourceManager.GetObject("ButtonRadioButtonOutlineNoFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonRightFocus {
+            get {
+                object obj = ResourceManager.GetObject("ButtonRightFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ButtonRightFocusOverlay {
+            get {
+                object obj = ResourceManager.GetObject("ButtonRightFocusOverlay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -111,12 +371,72 @@ namespace PlexWMC {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CheckBoxChecked {
+            get {
+                object obj = ResourceManager.GetObject("CheckBoxChecked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CheckBoxFocus {
+            get {
+                object obj = ResourceManager.GetObject("CheckBoxFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CheckBoxNonFocus {
+            get {
+                object obj = ResourceManager.GetObject("CheckBoxNonFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] Colors {
             get {
                 object obj = ResourceManager.GetObject("Colors", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Container {
+            get {
+                object obj = ResourceManager.GetObject("Container", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Container1 {
+            get {
+                object obj = ResourceManager.GetObject("Container1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Container2 {
+            get {
+                object obj = ResourceManager.GetObject("Container2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -160,12 +480,132 @@ namespace PlexWMC {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditBoxFocus {
+            get {
+                object obj = ResourceManager.GetObject("EditBoxFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditBoxNonFocus {
+            get {
+                object obj = ResourceManager.GetObject("EditBoxNonFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] ExpandCollapseButton {
             get {
                 object obj = ResourceManager.GetObject("ExpandCollapseButton", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FindEditbox {
+            get {
+                object obj = ResourceManager.GetObject("FindEditbox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FindEditboxNoFocus {
+            get {
+                object obj = ResourceManager.GetObject("FindEditboxNoFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FirstRunCheckBoxCheckedDisabled {
+            get {
+                object obj = ResourceManager.GetObject("FirstRunCheckBoxCheckedDisabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FirstRunCheckBoxCheckedFocus {
+            get {
+                object obj = ResourceManager.GetObject("FirstRunCheckBoxCheckedFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FirstRunCheckBoxCheckedNoFocus {
+            get {
+                object obj = ResourceManager.GetObject("FirstRunCheckBoxCheckedNoFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FirstRunCheckBoxCheckedPressed {
+            get {
+                object obj = ResourceManager.GetObject("FirstRunCheckBoxCheckedPressed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FirstRunCheckBoxUncheckedDisabled {
+            get {
+                object obj = ResourceManager.GetObject("FirstRunCheckBoxUncheckedDisabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FirstRunCheckBoxUncheckedFocus {
+            get {
+                object obj = ResourceManager.GetObject("FirstRunCheckBoxUncheckedFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FirstRunCheckBoxUncheckedNoFocus {
+            get {
+                object obj = ResourceManager.GetObject("FirstRunCheckBoxUncheckedNoFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FirstRunCheckBoxUncheckedPressed {
+            get {
+                object obj = ResourceManager.GetObject("FirstRunCheckBoxUncheckedPressed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -196,6 +636,36 @@ namespace PlexWMC {
             get {
                 object obj = ResourceManager.GetObject("ForegroundLoading", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GalleryFocus {
+            get {
+                object obj = ResourceManager.GetObject("GalleryFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gradient_Bottom {
+            get {
+                object obj = ResourceManager.GetObject("Gradient_Bottom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gradient_Top {
+            get {
+                object obj = ResourceManager.GetObject("Gradient_Top", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -250,11 +720,21 @@ namespace PlexWMC {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ListboxNoFocus {
+            get {
+                object obj = ResourceManager.GetObject("ListboxNoFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Page_Login {
+        internal static byte[] Login {
             get {
-                object obj = ResourceManager.GetObject("Page_Login", resourceCulture);
+                object obj = ResourceManager.GetObject("Login", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -262,10 +742,120 @@ namespace PlexWMC {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Page_Test {
+        internal static byte[] Menu {
             get {
-                object obj = ResourceManager.GetObject("Page_Test", resourceCulture);
+                object obj = ResourceManager.GetObject("Menu", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MouseNavDown {
+            get {
+                object obj = ResourceManager.GetObject("MouseNavDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MouseNavDownFocus {
+            get {
+                object obj = ResourceManager.GetObject("MouseNavDownFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MouseNavLeft {
+            get {
+                object obj = ResourceManager.GetObject("MouseNavLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MouseNavLeftFocus {
+            get {
+                object obj = ResourceManager.GetObject("MouseNavLeftFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MouseNavRight {
+            get {
+                object obj = ResourceManager.GetObject("MouseNavRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MouseNavRightFocus {
+            get {
+                object obj = ResourceManager.GetObject("MouseNavRightFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MouseNavUp {
+            get {
+                object obj = ResourceManager.GetObject("MouseNavUp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MouseNavUpFocus {
+            get {
+                object obj = ResourceManager.GetObject("MouseNavUpFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MusicDirectory {
+            get {
+                object obj = ResourceManager.GetObject("MusicDirectory", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MusicFile {
+            get {
+                object obj = ResourceManager.GetObject("MusicFile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OverlaysButtonNoFocus {
+            get {
+                object obj = ResourceManager.GetObject("OverlaysButtonNoFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -280,12 +870,111 @@ namespace PlexWMC {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PivotArrowLeft {
+            get {
+                object obj = ResourceManager.GetObject("PivotArrowLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PivotArrowLeftNoFocus {
+            get {
+                object obj = ResourceManager.GetObject("PivotArrowLeftNoFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PivotArrowRight {
+            get {
+                object obj = ResourceManager.GetObject("PivotArrowRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PivotArrowRightNoFocus {
+            get {
+                object obj = ResourceManager.GetObject("PivotArrowRightNoFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] PivotItem {
             get {
                 object obj = ResourceManager.GetObject("PivotItem", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PlexApi {
+            get {
+                object obj = ResourceManager.GetObject("PlexApi", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProgressBarFocus {
+            get {
+                object obj = ResourceManager.GetObject("ProgressBarFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProgressBarNonFocus {
+            get {
+                object obj = ResourceManager.GetObject("ProgressBarNonFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SectionsSettings {
+            get {
+                object obj = ResourceManager.GetObject("SectionsSettings", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Settings {
+            get {
+                object obj = ResourceManager.GetObject("Settings", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No image available.
+        /// </summary>
+        internal static string Shell_NoImage {
+            get {
+                return ResourceManager.GetString("Shell_NoImage", resourceCulture);
             }
         }
         
@@ -360,6 +1049,136 @@ namespace PlexWMC {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpinnerArrowBackDisabled {
+            get {
+                object obj = ResourceManager.GetObject("SpinnerArrowBackDisabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpinnerArrowBackDormant {
+            get {
+                object obj = ResourceManager.GetObject("SpinnerArrowBackDormant", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpinnerArrowBackFocus {
+            get {
+                object obj = ResourceManager.GetObject("SpinnerArrowBackFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpinnerArrowBackFocusoverlay {
+            get {
+                object obj = ResourceManager.GetObject("SpinnerArrowBackFocusoverlay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpinnerArrowBackNoFocus {
+            get {
+                object obj = ResourceManager.GetObject("SpinnerArrowBackNoFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpinnerArrowForwardDisabled {
+            get {
+                object obj = ResourceManager.GetObject("SpinnerArrowForwardDisabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpinnerArrowForwardDormant {
+            get {
+                object obj = ResourceManager.GetObject("SpinnerArrowForwardDormant", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpinnerArrowForwardFocus {
+            get {
+                object obj = ResourceManager.GetObject("SpinnerArrowForwardFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpinnerArrowForwardFocusoverlay {
+            get {
+                object obj = ResourceManager.GetObject("SpinnerArrowForwardFocusoverlay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpinnerArrowForwardNoFocus {
+            get {
+                object obj = ResourceManager.GetObject("SpinnerArrowForwardNoFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpinnerBluebarLargeDormant {
+            get {
+                object obj = ResourceManager.GetObject("SpinnerBluebarLargeDormant", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpinnerBluebarLargeFocus {
+            get {
+                object obj = ResourceManager.GetObject("SpinnerBluebarLargeFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpinnerBluebarLargeNoFocus {
+            get {
+                object obj = ResourceManager.GetObject("SpinnerBluebarLargeNoFocus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] StaticPivot {
@@ -375,6 +1194,26 @@ namespace PlexWMC {
         internal static byte[] Styles {
             get {
                 object obj = ResourceManager.GetObject("Styles", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Test {
+            get {
+                object obj = ResourceManager.GetObject("Test", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ThumbnailButton {
+            get {
+                object obj = ResourceManager.GetObject("ThumbnailButton", resourceCulture);
                 return ((byte[])(obj));
             }
         }

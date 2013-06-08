@@ -31,6 +31,8 @@ goto unregister
 
     ECHO.Remove the DLL from the Global Assembly cache
     "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /u "%AssemblyName%"
+    "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /u "PlexAPI"
+    "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /u "RestSharp"
 
     ECHO.Delete the folder containing the DLLs and supporting files (silent if successful)
     rd /s /q "%ProgramFilesPath%\%CompanyName%\%AssemblyName%"
@@ -72,6 +74,8 @@ goto unregister
 
     ECHO.Register the DLL with the global assembly cache
     "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /if "%ProgramFilesPath%\%CompanyName%\%AssemblyName%\%AssemblyName%.dll"
+    "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /if ".\References\PlexAPI.dll"
+    "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /if ".\References\RestSharp.dll"
 
     ECHO.Register the application with Windows Media Center
     %windir%\ehome\RegisterMCEApp.exe /allusers "%ProgramFilesPath%\%CompanyName%\%AssemblyName%\%RegistrationName%.xml"

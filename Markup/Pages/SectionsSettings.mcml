@@ -1,0 +1,101 @@
+<Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
+      xmlns:cor="assembly://MSCorLib/System"
+      xmlns:app="assembly://PlexWMC/PlexWMC"
+      xmlns:api="assembly://PlexAPI,Version=1.0.0.0,Culture=Neutral,PublicKeyToken=3b6cd3108f20d6a1/PlexAPI"
+      xmlns:styles="resx://PlexWMC/PlexWMC.Resources/Styles"
+      xmlns:eb="resx://PlexWMC/PlexWMC.Resources/Editbox"
+      xmlns:c="resx://PlexWMC/PlexWMC.Resources/CoreControls"
+      xmlns:me="Me">
+
+  <UI Name="Sections">
+
+    <Properties>
+      <app:Application Name="Application" Application="$Required"/>
+      <Color Name="LabelColor" Color="color://styles:Text.Copy"/>
+      <Font Name="LabelFont" Font="font://styles:TitleText"/>
+      <!--<app:SettingsCommand Name="SettingsCommand" SettingsCommand="$Required"/>-->
+    </Properties>
+
+    <Locals>
+
+      <Command Name="Save" Description="Login" />
+      <Command Name="Cancel" Description="Cancel" />
+
+    </Locals>
+
+    <Rules>
+      <Changed Source="[Save.Invoked]">
+        <Actions>
+          <Invoke Target="[Application.GoBack]"/>
+        </Actions>
+      </Changed>
+
+      <Changed Source="[Cancel.Invoked]">
+        <Actions>
+          <Invoke Target="[Application.GoBack]"/>
+        </Actions>
+      </Changed>
+
+    </Rules>
+
+    <Content>
+      <Panel>
+
+        <Children>
+
+          <Panel>
+            <Layout>
+              <FlowLayout Orientation="Horizontal" />
+            </Layout>
+            <Children>
+
+              <!-- Begin Left Menu -->
+              <Panel Margins="40,0,40,0">
+                <Layout>
+                  <FlowLayout Orientation="Vertical"
+                              StripAlignment="Center"
+                              Spacing="5,5"/>
+                </Layout>
+                <Children>
+                  <c:SimpleButton Command="[Save]" Text="Save" />
+                  <c:SimpleButton Command="[Cancel]" Text="Cancel" />
+                </Children>
+              </Panel>
+              <!-- End Left Menu -->
+
+              <!-- Begin Content -->
+              <Panel>
+                <Layout>
+                  <FlowLayout Orientation="Vertical"
+                              StripAlignment="Center"
+                              Spacing="5,5"/>
+                </Layout>
+                <Children>
+                  <Repeater Source="[Application.sections]">
+                    <Layout>
+                      <FlowLayout Spacing="5,0"
+                                  Orientation="Vertical"/>
+                    </Layout>
+                    <Content>
+                      <Text Content="[RepeatedItem!api:Directory.title]"
+                            Color="LawnGreen"
+                            Margins="5,5,5,5"/>
+                    </Content>
+
+                  </Repeater>
+                </Children>
+              </Panel>
+              <!-- End Content -->
+
+            </Children>
+          </Panel>
+
+          <!--<c:Background Name="Background" FillColor="40,40,40" Visible="true"/>-->
+
+        </Children>
+      </Panel>
+    </Content>
+
+  </UI>
+
+</Mcml>
