@@ -952,6 +952,16 @@ namespace PlexWMC {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Section {
+            get {
+                object obj = ResourceManager.GetObject("Section", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] SectionsSettings {
             get {
                 object obj = ResourceManager.GetObject("SectionsSettings", resourceCulture);

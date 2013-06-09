@@ -17,16 +17,16 @@
               description="Search Plex Libraries"
               imageURL=".\Application.png"
               UiFlags="HideTransportToolbar">
-    <category category="Custom Start Menu\Plex" order="0"/>
+    <category category="Custom Start Menu\Plex" order="100"/>
   </entrypoint>
 
   <entrypoint id="{AFA82FC2-CBCA-4B78-99DA-E4819EB227BA}"
-              addin="PlexWMC.Settings, PlexWMC,Culture=Neutral,Version=1.0.0.0,PublicKeyToken=4ae5afde023f77cc"
+              addin="PlexWMC.Browse, PlexWMC,Culture=Neutral,Version=1.0.0.0,PublicKeyToken=4ae5afde023f77cc"
               title="Browse"
               description="Browse Plex Libraries"
               imageURL=".\Application.png"
               UiFlags="HideTransportToolbar">
-    <category category="Custom Start Menu\Plex" order="0"/>
+    <category category="Custom Start Menu\Plex" order="101"/>
   </entrypoint>
 
   <entrypoint id="{7A952F65-6641-401D-826F-5C2F300D9FFC}"
@@ -35,7 +35,7 @@
               description="Plex Settings"
               imageURL=".\Application.png"
               UiFlags="HideTransportToolbar">
-    <category category="Custom Start Menu\Plex" order="0"/>
+    <category category="Custom Start Menu\Plex" order="102"/>
   </entrypoint>
   
 </application>

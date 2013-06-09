@@ -466,4 +466,7 @@
   <data name="ThumbnailButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>markup\thumbnailbutton.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>markup\pages\section.mcml;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

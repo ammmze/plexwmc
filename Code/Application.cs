@@ -5,6 +5,8 @@ using Microsoft.MediaCenter.Hosting;
 using Microsoft.MediaCenter.UI;
 using PlexAPI;
 using System;
+using System.Xml;
+using System.Reflection;
 
 namespace PlexWMC
 {
@@ -32,6 +34,20 @@ namespace PlexWMC
                 return host.MediaCenterEnvironment;
             }
         }
+
+        protected Dictionary<string, object> GetDefaultViewProperties()
+        {
+            Dictionary<string, object> properties = new Dictionary<string, object>();
+            properties["Application"] = this;
+            properties["User"] = Properties.Settings.Default.PlexUser;
+
+            if (properties["User"] == null)
+            {
+                properties["User"] = new User();
+            }
+
+            return properties;
+        }
         
         /// <summary>
         /// Navigate back to the previous page.
@@ -48,8 +64,7 @@ namespace PlexWMC
 
         public void GoToMenu()
         {
-            Dictionary<string, object> properties = new Dictionary<string, object>();
-            properties["Application"] = this;
+            var properties = GetDefaultViewProperties();
 
             if (session != null)
             {
@@ -63,8 +78,7 @@ namespace PlexWMC
 
         public void GoToLogin()
         {
-            Dictionary<string, object> properties = new Dictionary<string, object>();
-            properties["Application"] = this;
+            var properties = GetDefaultViewProperties();
 
             if (session != null)
             {
@@ -78,8 +92,7 @@ namespace PlexWMC
 
         public void GoToSettings()
         {
-            Dictionary<string, object> properties = new Dictionary<string, object>();
-            properties["Application"] = this;
+            var properties = GetDefaultViewProperties();
 
             if (session != null)
             {
@@ -93,8 +106,9 @@ namespace PlexWMC
 
         public void GoToSectionsSettings()
         {
-            Dictionary<string, object> properties = new Dictionary<string, object>();
-            properties["Application"] = this;
+            var properties = GetDefaultViewProperties();
+
+            RegisterSectionEntryPoints(sections);
 
             if (session != null)
             {
@@ -106,19 +120,43 @@ namespace PlexWMC
             }
         }
 
+        public void GoToSection(string guid)
+        {
+            var properties = GetDefaultViewProperties();
+
+            properties["Section"] = EntryPoints.GetSectionFromGuid(sections, guid);
+
+            if (session != null)
+            {
+                session.GoToPage("resx://PlexWMC/PlexWMC.Resources/Section", properties);
+            }
+            else
+            {
+                Debug.WriteLine("GoToSection");
+            }
+        }
+
+        public void RegisterSectionEntryPoints(List<Directory> sections)
+        {
+            //string assemblyFolder = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            //throw new Exception(assemblyFolder);
+            string app = EntryPoints.GetEntryPointsXmlFromSections(sections);
+            XmlReader reader = XmlReader.Create(new System.IO.StringReader(app));
+            ApplicationContext.RegisterApplication(reader, false, true, "");
+        }
+
         public List<ThumbnailCommand> thumbnails { get; set; }
 
         public void GoToBrowse()
         {
-            Dictionary<string, object> properties = new Dictionary<string, object>();
-            properties["Application"] = this;
+            var properties = GetDefaultViewProperties();
             thumbnails = new List<ThumbnailCommand>();
-
+            throw new Exception(host.ApplicationContext.EntryPointInfo["context"].ToString());
             foreach (Directory section in sections)
             {
                 ThumbnailCommand t = new ThumbnailCommand();
                 t.Title = section.title;
-                t.Image = new Image(section.server.GetBaseUrl() + section.thumb);
+                t.Image = new Image(section.server.GetBaseUrl() + section.thumb + "?X-Plex-Token=" + section.user.authenticationToken);
                 thumbnails.Add(t);
             }
 
@@ -137,8 +175,11 @@ namespace PlexWMC
             this.username = username.Value;
             
             MyPlex api = new MyPlex();
+            
             user = api.Authenticate(username.Value, password.Value);
             servers = api.GetServers(user);
+
+            Properties.Settings.Default.Save();
             
             DialogTest(user.authenticationToken);
             //GoBack();
@@ -166,17 +207,42 @@ namespace PlexWMC
             }
         }
 
-        public string[] MyData
+        public string username { get; set; }
+        public User user
         {
             get
             {
-                return new string[4] { "Alpha", "Bravo", "Charlie", "Delta" };
+                if (Properties.Settings.Default.PlexUser == null)
+                {
+                    user = new User();
+                }
+                return Properties.Settings.Default.PlexUser;
+            }
+            set
+            {
+                Properties.Settings.Default.PlexUser = value;
             }
         }
-
-        public string username { get; set; }
-        public User user { get; set; }
-        public List<Server> servers { get; set; }
+        public ServerList servers
+        {
+            get
+            {
+                try
+                {
+                    string servers = Properties.Settings.Default.PlexServers;
+                    return Serialization.Deserialize<ServerList>(servers);
+                }
+                catch (Exception e)
+                {
+                    return new ServerList();
+                }
+                
+            }
+            set
+            {
+                Properties.Settings.Default.PlexServers = Serialization.Serialize(value);
+            }
+        }
 
         public List<string> serverNames
         {

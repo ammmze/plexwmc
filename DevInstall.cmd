@@ -33,6 +33,7 @@ goto unregister
     "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /u "%AssemblyName%"
     "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /u "PlexAPI"
     "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /u "RestSharp"
+    "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /u "Newtonsoft.Json"
 
     ECHO.Delete the folder containing the DLLs and supporting files (silent if successful)
     rd /s /q "%ProgramFilesPath%\%CompanyName%\%AssemblyName%"
@@ -76,6 +77,7 @@ goto unregister
     "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /if "%ProgramFilesPath%\%CompanyName%\%AssemblyName%\%AssemblyName%.dll"
     "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /if ".\References\PlexAPI.dll"
     "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /if ".\References\RestSharp.dll"
+    "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /if ".\packages\Newtonsoft.Json.5.0.6\lib\net35\Newtonsoft.Json.dll"
 
     ECHO.Register the application with Windows Media Center
     %windir%\ehome\RegisterMCEApp.exe /allusers "%ProgramFilesPath%\%CompanyName%\%AssemblyName%\%RegistrationName%.xml"

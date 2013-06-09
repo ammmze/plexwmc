@@ -1,6 +1,7 @@
 <Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
       xmlns:cor="assembly://MSCorLib/System"
       xmlns:app="assembly://PlexWMC/PlexWMC"
+      xmlns:api="assembly://PlexAPI,Version=1.0.0.0,Culture=Neutral,PublicKeyToken=3b6cd3108f20d6a1/PlexAPI"
       xmlns:styles="resx://PlexWMC/PlexWMC.Resources/Styles"
       xmlns:eb="resx://PlexWMC/PlexWMC.Resources/Editbox"
       xmlns:c="resx://PlexWMC/PlexWMC.Resources/CoreControls"
@@ -10,6 +11,7 @@
 
     <Properties>
       <app:Application Name="Application" Application="$Required"/>
+      <api:User Name="User" User="$Required"/>
       <!--<app:SettingsCommand Name="SettingsCommand" SettingsCommand="$Required"/>-->
     </Properties>
 
@@ -55,6 +57,9 @@
                               Spacing="5,5"/>
                 </Layout>
                 <Children>
+                  <Text Content="[User.username]"
+                           Color="LawnGreen"
+                           Margins="5,5,5,5"/>
                   <c:SimpleButton Command="[Sections]" Text="Sections" />
                   <c:SimpleButton Command="[Login]" Text="myPlex" />
                   <c:SimpleButton Command="[Browse]" Text="Browse" />

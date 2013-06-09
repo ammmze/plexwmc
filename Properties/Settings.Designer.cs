@@ -36,12 +36,13 @@ namespace PlexWMC.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::PlexAPI.Server PlexServer {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string PlexServers {
             get {
-                return ((global::PlexAPI.Server)(this["PlexServer"]));
+                return ((string)(this["PlexServers"]));
             }
             set {
-                this["PlexServer"] = value;
+                this["PlexServers"] = value;
             }
         }
         

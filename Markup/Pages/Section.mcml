@@ -1,16 +1,21 @@
 <Mcml xmlns="http://schemas.microsoft.com/2008/mcml"
       xmlns:cor="assembly://MSCorLib/System"
       xmlns:app="assembly://PlexWMC/PlexWMC"
+      xmlns:api="assembly://PlexAPI,Version=1.0.0.0,Culture=Neutral,PublicKeyToken=3b6cd3108f20d6a1/PlexAPI"
       xmlns:styles="resx://PlexWMC/PlexWMC.Resources/Styles"
       xmlns:me="Me">
 
   <UI Name="Section">
 
+    <Properties>
+      <api:Directory Name="Section" Directory="$Required" />
+    </Properties>
+    
     <Rules>
       <Default Target="[Title.Content]"
-               Value="TV Shows"/>
+               Value="[Section.title]"/>
       <Default Target="[ServerName.Content]"
-               Value="Brary Media"/>
+               Value="[Section.server.name]"/>
     </Rules>
 
     <Content>
@@ -33,15 +38,15 @@
                                Top="Title,1,-10"/>
             </LayoutInput>
           </me:TextItem>
-          
+
           <!-- End Title Bar -->
 
-          
+
         </Children>
 
       </Panel>
 
-      
+
     </Content>
 
   </UI>
