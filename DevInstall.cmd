@@ -7,7 +7,7 @@ set CompanyName=MyCompany
 set AssemblyName=PlexWMC
 set RegistrationName=Registration
 set ProgramImage=Application.png
-set GACUtilPath=%ProgramFiles%
+set GACUtilPath=%ProgramFiles(x86)%\Microsoft SDKs\Windows\v8.0A\bin\NETFX 4.0 Tools\gacutil.exe
  
 ECHO.Determine whether we are on an 32 or 64 bit machine
 if "%PROCESSOR_ARCHITECTURE%"=="x86" if "%PROCESSOR_ARCHITEW6432%"=="" goto x86
@@ -19,6 +19,7 @@ goto unregister
 
     ECHO.On an x86 machine
     set ProgramFilesPath=%ProgramFiles%
+    set GACUtilPath=%ProgramFiles%\Microsoft SDKs\Windows\v8.0A\bin\NETFX 4.0 Tools\gacutil.exe
 
 :unregister
 
@@ -30,10 +31,10 @@ goto unregister
     %windir%\ehome\RegisterMCEApp.exe /allusers "%ProgramFilesPath%\%CompanyName%\%AssemblyName%\%RegistrationName%.xml" /u
 
     ECHO.Remove the DLL from the Global Assembly cache
-    "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /u "%AssemblyName%"
-    "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /u "PlexAPI"
-    "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /u "RestSharp"
-    "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /u "Newtonsoft.Json"
+    "%GACUtilPath%" /u "%AssemblyName%"
+    "%GACUtilPath%" /u "PlexAPI"
+    "%GACUtilPath%" /u "RestSharp"
+    "%GACUtilPath%" /u "Newtonsoft.Json"
 
     ECHO.Delete the folder containing the DLLs and supporting files (silent if successful)
     rd /s /q "%ProgramFilesPath%\%CompanyName%\%AssemblyName%"
@@ -74,10 +75,10 @@ goto unregister
     copy /y ".\Images\%ProgramImage%" "%ProgramFilesPath%\%CompanyName%\%AssemblyName%\"
 
     ECHO.Register the DLL with the global assembly cache
-    "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /if "%ProgramFilesPath%\%CompanyName%\%AssemblyName%\%AssemblyName%.dll"
-    "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /if ".\References\PlexAPI.dll"
-    "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /if ".\References\RestSharp.dll"
-    "%GACUtilPath%\Microsoft SDKs\Windows\v7.1\Bin\gacutil.exe" /if ".\packages\Newtonsoft.Json.5.0.6\lib\net35\Newtonsoft.Json.dll"
+    "%GACUtilPath%" /if "%ProgramFilesPath%\%CompanyName%\%AssemblyName%\%AssemblyName%.dll"
+    "%GACUtilPath%" /if ".\References\PlexAPI.dll"
+    "%GACUtilPath%" /if ".\References\RestSharp.dll"
+    "%GACUtilPath%" /if ".\packages\Newtonsoft.Json.5.0.6\lib\net35\Newtonsoft.Json.dll"
 
     ECHO.Register the application with Windows Media Center
     %windir%\ehome\RegisterMCEApp.exe /allusers "%ProgramFilesPath%\%CompanyName%\%AssemblyName%\%RegistrationName%.xml"
